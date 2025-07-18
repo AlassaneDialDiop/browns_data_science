@@ -85,6 +85,21 @@ header {
   display: none; /* Hide default Jekyll header */
 }
 
+/* Hide GitHub Pages footer */
+footer {
+  display: none !important;
+}
+
+.site-footer {
+  display: none !important;
+}
+
+/* Hide "This site is powered by..." */
+.site-footer-owner,
+.site-footer-credits {
+  display: none !important;
+}
+
 /* Improve markdown rendering */
 .markdown-body {
   max-width: none;
@@ -113,26 +128,55 @@ h3 {
   margin-bottom: 0.8em;
 }
 
-/* Fix flex layout for project poster */
-.project-layout {
-  display: flex;
-  gap: 40px;
-  margin: 30px 0;
+/* Two-column layout for project pages */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin: 40px 0;
 }
 
-.project-left {
-  flex: 1.5;
+.column-left {
+  padding-right: 20px;
 }
 
-.project-right {
-  flex: 1;
+.column-right {
+  padding-left: 20px;
+}
+
+/* Project header section */
+.project-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #000;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+.project-meta strong {
+  font-weight: 600;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .project-layout {
-    flex-direction: column;
-    gap: 20px;
+  .two-column-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .column-left,
+  .column-right {
+    padding: 0;
+  }
+  
+  .project-meta {
+    grid-template-columns: 1fr;
   }
   
   .wrapper {

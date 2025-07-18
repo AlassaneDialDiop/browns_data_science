@@ -1,11 +1,17 @@
 # Browns Lens – Real-time SKU Recognition
 
-**Project**: Browns Lens – SKU-on-Camera  
-**Owner**: Alassane Diop — Data Science / AI  
-**Status**: 🧪 Pilot (2 stores)  
-**Demo**: [Live Demo](https://browns-internal/browns-lens)
+<div class="project-header">
+  <div class="project-meta">
+    <div><strong>Project:</strong> Browns Lens – SKU-on-Camera</div>
+    <div><strong>Owner:</strong> Alassane Diop — Data Science / AI</div>
+    <div><strong>Status:</strong> 🧪 Pilot (2 stores)</div>
+    <div><strong>Demo:</strong> <a href="https://browns-internal/browns-lens">Live Demo</a></div>
+  </div>
+</div>
 
----
+<div class="two-column-layout">
+
+<div class="column-left">
 
 ## 🎯 Problem
 Associates waste **~90 seconds** per customer typing style codes or flipping through catalogs to find products in the vitrine.
@@ -30,6 +36,10 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
                  📊 Results Display (1/3 - 2/3 layout)
 ```
 
+</div>
+
+<div class="column-right">
+
 ## 📊 Impact Snapshot – Pilot Results
 
 | **KPI**             | **Before** | **After**    | **Change** |
@@ -50,13 +60,17 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - **Introduction** to Retail Ops VP for national rollout
 - **2 iPads** per store for dedicated kiosks
 
----
+## 🛠️ Tech Stack
+- **Frontend**: Streamlit + WebRTC
+- **ML Model**: OpenAI CLIP (ViT-B/32)
+- **Backend**: AWS Lambda + Flask
+- **Database**: Snowflake vector search
+- **Deployment**: Docker on AWS
 
-### 🛠️ Tech Stack Details
-- **Frontend**: Streamlit + WebRTC (real-time camera)
-- **ML Model**: OpenAI CLIP (ViT-B/32) for image embeddings
-- **Backend**: AWS Lambda + Flask API
-- **Database**: Snowflake with vector similarity search
-- **Deployment**: Docker on AWS with auto-scaling
+</div>
+
+</div>
+
+---
 
 *Last updated: 2024-01-18*
