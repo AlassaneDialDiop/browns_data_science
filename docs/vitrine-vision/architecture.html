@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vitrine Vision Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+    graph LR
+        A[📱 iPhone Camera] --> B[Streamlit App<br/>WebRTC]
+        B --> C[AWS Lambda<br/>CLIP Model]
+        C --> D[Image<br/>Embedding<br/>512-dim vector]
+        D --> E[Snowflake DB<br/>Vector Search]
+        E --> F[Top-5 SKUs<br/>with scores]
+        F --> G[📊 Results Display<br/>Product Info]
+        
+        style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style B fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style C fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style E fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style F fill:#f9f9f9,stroke:#333,stroke-width:2px
+        style G fill:#f9f9f9,stroke:#333,stroke-width:2px
+    </div>
+</body>
+</html>
