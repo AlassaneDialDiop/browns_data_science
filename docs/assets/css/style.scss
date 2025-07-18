@@ -66,15 +66,106 @@ strong {
   font-weight: 700;
 }
 
-/* Custom styles for the portfolio */
+/* Custom styles for the documentation platform */
 .wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 section {
-  max-width: 900px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 header {
   display: none; /* Hide default Jekyll header */
+}
+
+/* Improve markdown rendering */
+.markdown-body {
+  max-width: none;
+  width: 100%;
+}
+
+/* Better spacing and typography */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  border-bottom: 3px solid #000;
+  padding-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+/* Fix flex layout for project poster */
+.project-layout {
+  display: flex;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.project-left {
+  flex: 1.5;
+}
+
+.project-right {
+  flex: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .project-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .wrapper {
+    width: 95%;
+    padding: 0 10px;
+  }
+  
+  section {
+    padding: 20px 0;
+  }
+}
+
+/* Better table styling */
+table {
+  margin: 30px 0;
+  font-size: 0.9em;
+}
+
+th {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Code blocks */
+pre {
+  margin: 25px 0;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Links in tables */
+table a {
+  color: #000;
+  font-weight: 600;
 }

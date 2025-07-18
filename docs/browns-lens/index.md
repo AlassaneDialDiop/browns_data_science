@@ -1,15 +1,11 @@
-# Vitrine Vision – Real-time SKU Recognition
+# Browns Lens – Real-time SKU Recognition
 
-**Project**: Vitrine Vision – SKU-on-Camera  
+**Project**: Browns Lens – SKU-on-Camera  
 **Owner**: Alassane Diop — Data Science / AI  
 **Status**: 🧪 Pilot (2 stores)  
-**Demo**: [Live Demo](https://browns-internal/vitrine-vision)
+**Demo**: [Live Demo](https://browns-internal/browns-lens)
 
 ---
-
-<div style="display: flex; gap: 20px;">
-
-<div style="flex: 1.5;">
 
 ## 🎯 Problem
 Associates waste **~90 seconds** per customer typing style codes or flipping through catalogs to find products in the vitrine.
@@ -34,10 +30,6 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
                  📊 Results Display (1/3 - 2/3 layout)
 ```
 
-</div>
-
-<div style="flex: 1;">
-
 ## 📊 Impact Snapshot – Pilot Results
 
 | **KPI**             | **Before** | **After**    | **Change** |
@@ -57,10 +49,6 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - **$3k/month** for Snowflake vector DB production tier
 - **Introduction** to Retail Ops VP for national rollout
 - **2 iPads** per store for dedicated kiosks
-
-</div>
-
-</div>
 
 ---
 

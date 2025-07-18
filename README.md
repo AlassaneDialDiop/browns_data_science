@@ -6,7 +6,7 @@ Technical documentation and project showcase for Data Science & AI initiatives a
 Visit: https://[your-username].github.io/browns_data_science/
 
 ## 🔬 Active Projects
-- **Vitrine Vision**: Real-time shoe recognition system using CLIP embeddings
+- **Browns Lens**: Real-time shoe recognition system using CLIP embeddings
 - **Inventory Optimization**: ML-driven stock management (coming soon)
 - **Customer Analytics**: Behavioral pattern analysis (coming soon)
 
