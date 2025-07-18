@@ -8,7 +8,7 @@ git add .
 git commit -m "Initial commit - Browns Data Science documentation platform"
 
 # Add your new repo as origin (UPDATE THIS URL!)
-git remote add origin https://github.com/YOUR_USERNAME/browns_data_science.git
+git remote add origin https://github.com/AlassaneDialDiop/browns_data_science.git
 
 # Push to GitHub
 git push -u origin main
