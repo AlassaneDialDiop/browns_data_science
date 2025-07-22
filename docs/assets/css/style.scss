@@ -25,6 +25,17 @@ a:hover {
   color: #333;
 }
 
+/* Style h1 links without underlines */
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
