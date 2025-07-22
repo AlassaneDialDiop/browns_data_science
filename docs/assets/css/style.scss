@@ -224,3 +224,20 @@ table a {
   color: #000;
   font-weight: 600;
 }
+
+/* Emoji support */
+img.emoji {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+  border: none;
+  box-shadow: none;
+}
+
+/* Direct Unicode emoji styling */
+h1, h2, h3, h4, h5, h6 {
+  /* Ensure emojis in headings display properly */
+  font-variant-emoji: emoji;
+}

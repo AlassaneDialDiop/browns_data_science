@@ -9,16 +9,6 @@ plugins:
   - jemoji
 
 # Markdown Configuration
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  auto_ids: true
-  entity_output: as_char
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
+markdown: GFM
+# Alternative if GFM doesn't work:
+# markdown: CommonMarkGhPages
