@@ -28,12 +28,33 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - Clean, simple UI with Montserrat font and black/white aesthetic
 
 ## 🔧 Technical Architecture
+
+### Tech Stack
+- **Frontend**: Streamlit + WebRTC
+- **ML Model**: OpenAI CLIP (ViT-B/32)
+- **Backend**: AWS Lambda + Flask
+- **Database**: Snowflake vector search
+- **Deployment**: Docker on AWS
+
+### System Flow
 ```
-iPhone Camera → Streamlit WebRTC → AWS Lambda (CLIP)
-                                          ↓
-                    Snowflake ← Vector Similarity Search
-                        ↓
-                 Results Display (1/3 - 2/3 layout)
+┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+│   Store     │      │   Browser    │      │    Cloud    │
+│  Associate  │ ───► │  Streamlit   │ ───► │    AWS      │
+│             │      │   WebRTC     │      │   Lambda    │
+└─────────────┘      └──────────────┘      └─────────────┘
+                            │                      │
+                            │                      ▼
+                            │              ┌──────────────┐
+                            │              │     CLIP     │
+                            │              │  Embeddings  │
+                            │              └──────────────┘
+                            │                      │
+                            │                      ▼
+                            │              ┌──────────────┐
+                            │              │  Snowflake   │
+                            └────────────► │Vector Search │
+                                          └──────────────┘
 ```
 
 </div>
@@ -49,28 +70,10 @@ iPhone Camera → Streamlit WebRTC → AWS Lambda (CLIP)
 | Top-5 accuracy      | 84%        | **96%**      | **+12pt**  |
 | Staff satisfaction  | 3.1/5      | **4.6/5**    | **+48%**   |
 
-## 🚀 Next 30 Days
-- ✅ Add active-learning loop (staff feedback → nightly retrain)
-- ✅ Roll out to 10 flagship stores across GTA
-- ✅ Integrate real-time inventory API
-- ✅ Add "similar styles" recommendation
-
-## 💼 Business Ask
-- **$3k/month** for Snowflake vector DB production tier
-- **Introduction** to Retail Ops VP for national rollout
-- **2 iPads** per store for dedicated kiosks
-
-## 🛠️ Tech Stack
-- **Frontend**: Streamlit + WebRTC
-- **ML Model**: OpenAI CLIP (ViT-B/32)
-- **Backend**: AWS Lambda + Flask
-- **Database**: Snowflake vector search
-- **Deployment**: Docker on AWS
-
 </div>
 
 </div>
 
 ---
 
-*Last updated: 2025-07-22* v1.1
+*Last updated: 2025-07-22* v1.2
