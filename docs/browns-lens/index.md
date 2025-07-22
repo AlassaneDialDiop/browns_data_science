@@ -38,125 +38,116 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 <div class="column-right">
 
-## 🔧 System Architecture
+## 🔧 System Use Case Diagram
 
-<div class="architecture-diagram">
+<div class="usecase-diagram">
   
-  <!-- User Layer -->
-  <div class="arch-layer user-layer">
-    <div class="layer-label">USER LAYER</div>
-    <div class="layer-content">
-      <div class="component user-component">
-        <div class="component-icon">👤</div>
-        <div class="component-text">
-          <strong>Store Associate</strong><br>
-          Point camera at shoe
-        </div>
-      </div>
+  <!-- Actors -->
+  <div class="actors-section">
+    <div class="actor primary-actor">
+      <div class="actor-icon">👤</div>
+      <div class="actor-label">Store Associate</div>
+    </div>
+    
+    <div class="actor secondary-actor">
+      <div class="actor-icon">👥</div>
+      <div class="actor-label">Customer</div>
     </div>
   </div>
 
-  <!-- Frontend Layer -->
-  <div class="arch-layer frontend-layer">
-    <div class="layer-label">FRONTEND LAYER</div>
-    <div class="layer-content">
-      <div class="component frontend-component">
-        <div class="component-icon">📱</div>
-        <div class="component-text">
-          <strong>Streamlit WebApp</strong><br>
-          WebRTC Camera Capture<br>
-          <em>Auto-capture every 2s</em>
+  <!-- System Boundary -->
+  <div class="system-boundary">
+    <div class="system-title">Browns Lens System</div>
+    
+    <!-- Use Cases -->
+    <div class="usecase-container">
+      
+      <div class="usecase primary-usecase">
+        <div class="usecase-number">1</div>
+        <div class="usecase-text">
+          <strong>Capture Shoe Image</strong><br>
+          <em>Point camera at shoe</em>
         </div>
       </div>
+      
+      <div class="usecase">
+        <div class="usecase-number">2</div>
+        <div class="usecase-text">
+          <strong>Process Image</strong><br>
+          <em>Extract features via CLIP</em>
+        </div>
+      </div>
+      
+      <div class="usecase">
+        <div class="usecase-number">3</div>
+        <div class="usecase-text">
+          <strong>Search Products</strong><br>
+          <em>Vector similarity search</em>
+        </div>
+      </div>
+      
+      <div class="usecase primary-usecase">
+        <div class="usecase-number">4</div>
+        <div class="usecase-text">
+          <strong>Display Results</strong><br>
+          <em>Show top 5 matches</em>
+        </div>
+      </div>
+      
+      <div class="usecase">
+        <div class="usecase-number">5</div>
+        <div class="usecase-text">
+          <strong>Select Product</strong><br>
+          <em>Choose from results</em>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Connections -->
+    <div class="connections">
+      <div class="connection">Store Associate → Use Cases 1, 4, 5</div>
+      <div class="connection">Customer → Observes process</div>
+      <div class="connection">Use Cases: 1 → 2 → 3 → 4 → 5</div>
+    </div>
+    
+  </div>
+
+  <!-- External Systems -->
+  <div class="external-systems">
+    <div class="external-system">
+      <div class="system-icon">☁️</div>
+      <div class="system-label">AWS Infrastructure</div>
+      <div class="system-details">Lambda, API Gateway</div>
+    </div>
+    
+    <div class="external-system">
+      <div class="system-icon">❄️</div>
+      <div class="system-label">Snowflake</div>
+      <div class="system-details">Vector Database</div>
+    </div>
+    
+    <div class="external-system">
+      <div class="system-icon">🤖</div>
+      <div class="system-label">OpenAI CLIP</div>
+      <div class="system-details">ML Model</div>
     </div>
   </div>
 
-  <!-- API Layer -->
-  <div class="arch-layer api-layer">
-    <div class="layer-label">API LAYER</div>
-    <div class="layer-content">
-      <div class="component api-component">
-        <div class="component-icon">🌐</div>
-        <div class="component-text">
-          <strong>AWS API Gateway</strong><br>
-          RESTful Endpoint<br>
-          <em>Authentication & Rate Limiting</em>
-        </div>
-      </div>
-    </div>
+  <!-- Key Flows -->
+  <div class="key-flows">
+    <div class="flow-title">Data Flow</div>
+    <div class="flow-item">📸 Image Capture → Every 2 seconds</div>
+    <div class="flow-item">⚡ Processing → <300ms response</div>
+    <div class="flow-item">🎯 Accuracy → >95% top-5 recall</div>
   </div>
-
-  <!-- Processing Layer -->
-  <div class="arch-layer processing-layer">
-    <div class="layer-label">PROCESSING LAYER</div>
-    <div class="layer-content">
-      <div class="component lambda-component">
-        <div class="component-icon">⚡</div>
-        <div class="component-text">
-          <strong>AWS Lambda</strong><br>
-          Image Processing<br>
-          <em>Auto-scaling</em>
-        </div>
-      </div>
-      <div class="process-arrow">→</div>
-      <div class="component ml-component">
-        <div class="component-icon">🧠</div>
-        <div class="component-text">
-          <strong>CLIP Model</strong><br>
-          ViT-B/32<br>
-          <em>768-dim embeddings</em>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Data Layer -->
-  <div class="arch-layer data-layer">
-    <div class="layer-label">DATA LAYER</div>
-    <div class="layer-content">
-      <div class="component database-component">
-        <div class="component-icon">🗄️</div>
-        <div class="component-text">
-          <strong>Snowflake Vector DB</strong><br>
-          50,000+ Products<br>
-          <em>Cosine similarity search</em>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Response Flow -->
-  <div class="response-flow">
-    <div class="response-arrow">↑</div>
-    <div class="response-text">
-      <strong>Response: &lt;300ms</strong><br>
-      Top 5 matching products<br>
-      with confidence scores
-    </div>
-  </div>
-
-  <!-- Data Flow Indicators -->
-  <div class="flow-indicators">
-    <div class="flow-down">⬇ Image Data</div>
-    <div class="flow-up">⬆ Product Results</div>
-  </div>
-
-</div>
-
-## 📊 Impact Metrics
-
-| **KPI**             | **Before** | **After**    | **Change** |
-|---------------------|------------|--------------|------------|
-| Avg lookup time     | 92s        | **12s**      | **-87%**   |
-| Top-1 accuracy      | 72%        | **91%**      | **+19pt**  |
-| Top-5 accuracy      | 84%        | **96%**      | **+12pt**  |
-| Staff satisfaction  | 3.1/5      | **4.6/5**    | **+48%**   |
 
 </div>
 
 </div>
 
+</div>
 
 ---
 
-*Last updated: 2025-07-22* v1.4
+*Last updated: 2025-07-22* v1.5
