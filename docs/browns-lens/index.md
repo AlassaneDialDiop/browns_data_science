@@ -40,60 +40,107 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 ## 🔧 System Architecture
 
-<div class="system-diagram">
-  <div class="diagram-row">
-    <div class="node user-node">
-      <strong>Store Associate</strong><br>
-      iPhone Camera
-    </div>
-    <div class="arrow">📱</div>
-    <div class="node frontend-node">
-      <strong>Streamlit App</strong><br>
-      WebRTC Capture<br>
-      <em>Every 2 seconds</em>
+<div class="architecture-diagram">
+  
+  <!-- User Layer -->
+  <div class="arch-layer user-layer">
+    <div class="layer-label">USER LAYER</div>
+    <div class="layer-content">
+      <div class="component user-component">
+        <div class="component-icon">👤</div>
+        <div class="component-text">
+          <strong>Store Associate</strong><br>
+          Point camera at shoe
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="diagram-flow">↓</div>
-  
-  <div class="diagram-row">
-    <div class="node api-node">
-      <strong>API Gateway</strong><br>
-      HTTPS Endpoint
-    </div>
-    <div class="arrow">🌐</div>
-    <div class="node compute-node">
-      <strong>AWS Lambda</strong><br>
-      Image Processing<br>
-      <em>Auto-scaling</em>
-    </div>
-  </div>
-  
-  <div class="diagram-flow">↓</div>
-  
-  <div class="diagram-row">
-    <div class="node ml-node">
-      <strong>CLIP Model</strong><br>
-      ViT-B/32<br>
-      768-dim embeddings
-    </div>
-    <div class="arrow">🧠</div>
-    <div class="node database-node">
-      <strong>Snowflake</strong><br>
-      Vector Database<br>
-      50,000+ products
+
+  <!-- Frontend Layer -->
+  <div class="arch-layer frontend-layer">
+    <div class="layer-label">FRONTEND LAYER</div>
+    <div class="layer-content">
+      <div class="component frontend-component">
+        <div class="component-icon">📱</div>
+        <div class="component-text">
+          <strong>Streamlit WebApp</strong><br>
+          WebRTC Camera Capture<br>
+          <em>Auto-capture every 2s</em>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="diagram-flow">↓</div>
-  
-  <div class="diagram-row center">
-    <div class="node results-node">
-      <strong>Search Results</strong><br>
-      Top 5 matches<br>
-      <em>&lt;300ms response</em>
+
+  <!-- API Layer -->
+  <div class="arch-layer api-layer">
+    <div class="layer-label">API LAYER</div>
+    <div class="layer-content">
+      <div class="component api-component">
+        <div class="component-icon">🌐</div>
+        <div class="component-text">
+          <strong>AWS API Gateway</strong><br>
+          RESTful Endpoint<br>
+          <em>Authentication & Rate Limiting</em>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Processing Layer -->
+  <div class="arch-layer processing-layer">
+    <div class="layer-label">PROCESSING LAYER</div>
+    <div class="layer-content">
+      <div class="component lambda-component">
+        <div class="component-icon">⚡</div>
+        <div class="component-text">
+          <strong>AWS Lambda</strong><br>
+          Image Processing<br>
+          <em>Auto-scaling</em>
+        </div>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="component ml-component">
+        <div class="component-icon">🧠</div>
+        <div class="component-text">
+          <strong>CLIP Model</strong><br>
+          ViT-B/32<br>
+          <em>768-dim embeddings</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Layer -->
+  <div class="arch-layer data-layer">
+    <div class="layer-label">DATA LAYER</div>
+    <div class="layer-content">
+      <div class="component database-component">
+        <div class="component-icon">🗄️</div>
+        <div class="component-text">
+          <strong>Snowflake Vector DB</strong><br>
+          50,000+ Products<br>
+          <em>Cosine similarity search</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Response Flow -->
+  <div class="response-flow">
+    <div class="response-arrow">↑</div>
+    <div class="response-text">
+      <strong>Response: &lt;300ms</strong><br>
+      Top 5 matching products<br>
+      with confidence scores
+    </div>
+  </div>
+
+  <!-- Data Flow Indicators -->
+  <div class="flow-indicators">
+    <div class="flow-down">⬇ Image Data</div>
+    <div class="flow-up">⬆ Product Results</div>
+  </div>
+
 </div>
 
 ## 📊 Impact Metrics
@@ -112,4 +159,4 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 ---
 
-*Last updated: 2025-07-22* v1.3
+*Last updated: 2025-07-22* v1.4
