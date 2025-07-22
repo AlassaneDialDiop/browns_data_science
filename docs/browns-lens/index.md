@@ -27,127 +27,119 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - Frees staff for upselling → projected **+1% conversion rate**
 - Clean, simple UI with Montserrat font and black/white aesthetic
 
-## 🛠️ Tech Stack
-- **Frontend**: Streamlit + WebRTC
-- **ML Model**: OpenAI CLIP (ViT-B/32)
-- **Backend**: AWS Lambda + Flask
-- **Database**: Snowflake vector search
-- **Deployment**: Docker on AWS
-
 </div>
 
 <div class="column-right">
 
-## 🔧 System Use Case Diagram
+## 🔧 How Browns Lens Works
 
-<div class="usecase-diagram">
+<div class="shazam-diagram">
+  <div class="diagram-title">High-level Diagram of How Browns Lens Works<br>Behind the Scenes</div>
   
-  <!-- Actors -->
-  <div class="actors-section">
-    <div class="actor primary-actor">
-      <div class="actor-icon">👤</div>
-      <div class="actor-label">Store Associate</div>
+  <div class="diagram-content">
+    
+    <!-- Catalog Side -->
+    <div class="process-column catalog-column">
+      <div class="column-title">Catalog Products</div>
+      
+      <div class="process-box">
+        <div class="process-icon">📷</div>
+        <div class="process-label">Product Photos</div>
+      </div>
+      
+      <div class="process-arrow">↓</div>
+      
+      <div class="process-box">
+        <div class="process-icon">🖼️</div>
+        <div class="process-label">Pre-processing</div>
+      </div>
+      
+      <div class="process-arrow">↓</div>
+      
+      <div class="process-box fingerprint-box">
+        <div class="process-label">CLIP Embeddings</div>
+        <div class="process-sublabel">768-dim vectors</div>
+      </div>
+      
+      <div class="process-arrow">↓</div>
+      
+      <div class="process-box">
+        <div class="process-label">Vector Storage</div>
+      </div>
+      
+      <div class="arrow-to-db">→</div>
     </div>
     
-    <div class="actor secondary-actor">
-      <div class="actor-icon">👥</div>
-      <div class="actor-label">Customer</div>
+    <!-- Database -->
+    <div class="database-column">
+      <div class="database-box">
+        <div class="db-icon">🗄️</div>
+        <div class="db-label">Vector Database</div>
+        <div class="db-sublabel">50,000+ products</div>
+      </div>
+      
+      <div class="matching-box">
+        <div class="matching-label">Similarity<br>Matching</div>
+      </div>
+      
+      <div class="result-arrow">↓</div>
+      
+      <div class="result-box">
+        <div class="result-icon">👟</div>
+        <div class="result-label">Top 5 Products</div>
+      </div>
     </div>
+    
+    <!-- Recognition Side -->
+    <div class="process-column recognize-column">
+      <div class="column-title">Identify Shoe</div>
+      
+      <div class="process-box">
+        <div class="process-icon">📱</div>
+        <div class="process-label">Camera Capture</div>
+      </div>
+      
+      <div class="process-arrow">↓</div>
+      
+      <div class="process-box">
+        <div class="process-icon">⚡</div>
+        <div class="process-label">Live Processing</div>
+      </div>
+      
+      <div class="process-arrow">↓</div>
+      
+      <div class="process-box fingerprint-box">
+        <div class="process-label">CLIP Embeddings</div>
+        <div class="process-sublabel">Real-time</div>
+      </div>
+      
+      <div class="arrow-to-matching">→</div>
+    </div>
+    
   </div>
-
-  <!-- System Boundary -->
-  <div class="system-boundary">
-    <div class="system-title">Browns Lens System</div>
-    
-    <!-- Use Cases -->
-    <div class="usecase-container">
-      
-      <div class="usecase primary-usecase">
-        <div class="usecase-number">1</div>
-        <div class="usecase-text">
-          <strong>Capture Shoe Image</strong><br>
-          <em>Point camera at shoe</em>
-        </div>
-      </div>
-      
-      <div class="usecase">
-        <div class="usecase-number">2</div>
-        <div class="usecase-text">
-          <strong>Process Image</strong><br>
-          <em>Extract features via CLIP</em>
-        </div>
-      </div>
-      
-      <div class="usecase">
-        <div class="usecase-number">3</div>
-        <div class="usecase-text">
-          <strong>Search Products</strong><br>
-          <em>Vector similarity search</em>
-        </div>
-      </div>
-      
-      <div class="usecase primary-usecase">
-        <div class="usecase-number">4</div>
-        <div class="usecase-text">
-          <strong>Display Results</strong><br>
-          <em>Show top 5 matches</em>
-        </div>
-      </div>
-      
-      <div class="usecase">
-        <div class="usecase-number">5</div>
-        <div class="usecase-text">
-          <strong>Select Product</strong><br>
-          <em>Choose from results</em>
-        </div>
-      </div>
-      
-    </div>
-    
-    <!-- Connections -->
-    <div class="connections">
-      <div class="connection">Store Associate → Use Cases 1, 4, 5</div>
-      <div class="connection">Customer → Observes process</div>
-      <div class="connection">Use Cases: 1 → 2 → 3 → 4 → 5</div>
-    </div>
-    
-  </div>
-
-  <!-- External Systems -->
-  <div class="external-systems">
-    <div class="external-system">
-      <div class="system-icon">☁️</div>
-      <div class="system-label">AWS Infrastructure</div>
-      <div class="system-details">Lambda, API Gateway</div>
-    </div>
-    
-    <div class="external-system">
-      <div class="system-icon">❄️</div>
-      <div class="system-label">Snowflake</div>
-      <div class="system-details">Vector Database</div>
-    </div>
-    
-    <div class="external-system">
-      <div class="system-icon">🤖</div>
-      <div class="system-label">OpenAI CLIP</div>
-      <div class="system-details">ML Model</div>
-    </div>
-  </div>
-
-  <!-- Key Flows -->
-  <div class="key-flows">
-    <div class="flow-title">Data Flow</div>
-    <div class="flow-item">📸 Image Capture → Every 2 seconds</div>
-    <div class="flow-item">⚡ Processing → <300ms response</div>
-    <div class="flow-item">🎯 Accuracy → >95% top-5 recall</div>
-  </div>
-
 </div>
 
 </div>
 
 </div>
+
+## 🛠️ Technical Components
+
+### 🎥 Frontend Layer
+**Streamlit + WebRTC** – Provides real-time camera access through web browsers, capturing frames automatically every 2 seconds. WebRTC ensures low-latency video streaming without requiring any plugins or downloads, making it seamless for store associates to use on any device.
+
+### 🧠 ML Processing  
+**OpenAI CLIP (ViT-B/32)** – Converts shoe images into 768-dimensional vectors that capture visual features. CLIP (Contrastive Language-Image Pre-training) understands both images and text, trained on 400M image-text pairs. This allows it to recognize shoes even from different angles, lighting conditions, or partial views.
+
+### ⚡ Compute Layer
+**AWS Lambda + Flask** – Serverless functions that automatically scale based on demand, processing each image in under 300ms. Lambda eliminates the need for managing servers and only charges for actual compute time used. Flask provides a lightweight API framework for handling requests.
+
+### ❄️ Vector Storage
+**Snowflake Vector Database** – Stores pre-computed embeddings for our entire 50,000+ product catalog. Uses cosine similarity for ultra-fast nearest neighbor search, returning the most visually similar products in milliseconds. Snowflake's distributed architecture ensures consistent performance even as our catalog grows.
+
+### 🐳 Deployment
+**Docker on AWS** – Containerized deployment ensures consistent environments across development, testing, and production. Docker images package all dependencies, making deployments reliable and rollbacks simple. AWS provides the infrastructure with auto-scaling and high availability.
 
 ---
 
-*Last updated: 2025-07-22* v1.5
+*Last updated: 2025-07-22* v1.6
