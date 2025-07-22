@@ -242,24 +242,202 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-emoji: emoji;
 }
 
-/* Simplified project header */
-.project-header {
+/* Shazam-Style Architecture Diagram */
+.shazam-diagram {
+  background: linear-gradient(to bottom, #fef6f0 0%, #fef9f5 100%);
+  padding: 40px 30px;
+  border-radius: 16px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  font-size: 0.85em;
+  min-height: 500px;
+  position: relative;
+}
+
+.diagram-title {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.diagram-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Process Columns */
+.process-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-title {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* Process Boxes */
+.process-box {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 15px 25px;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.process-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fingerprint-box {
+  background: #e8eaf6;
+  border-color: #9fa8da;
+}
+
+.process-icon {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+.process-label {
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+}
+
+.process-sublabel {
+  font-size: 0.85em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Arrows */
+.process-arrow {
+  font-size: 1.3em;
+  color: #999;
+  margin: 15px 0;
+  text-align: center;
+  line-height: 1;
+}
+
+.arrow-to-db {
+  font-size: 1.3em;
+  color: #999;
+  margin-top: 15px;
+  transform: rotate(-45deg);
+  position: relative;
+  right: -30px;
+}
+
+.arrow-to-matching {
+  font-size: 1.3em;
+  color: #999;
+  margin-top: 15px;
+  transform: rotate(45deg);
+  position: relative;
+  left: -30px;
+}
+
+/* Database Column */
+.database-column {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.database-box {
+  background: #fff3e0;
+  border: 3px solid #ffb74d;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(255,152,0,0.2);
   margin-bottom: 30px;
 }
 
-/* ASCII diagram styling */
-pre {
-  background-color: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
-  padding: 20px;
-  overflow-x: auto;
-  font-size: 0.85em;
-  line-height: 1.4;
-  margin: 20px 0;
+.db-icon {
+  font-size: 2em;
+  margin-bottom: 8px;
 }
 
-/* Technical components section */
+.db-label {
+  font-weight: 700;
+  color: #e65100;
+  font-size: 0.9em;
+}
+
+.db-sublabel {
+  font-size: 0.75em;
+  color: #bf360c;
+}
+
+/* Matching Box */
+.matching-box {
+  background: #f3e5f5;
+  border: 2px solid #ba68c8;
+  border-radius: 12px;
+  padding: 15px 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(156,39,176,0.15);
+}
+
+.matching-label {
+  font-weight: 600;
+  color: #6a1b9a;
+  line-height: 1.3;
+}
+
+/* Result */
+.result-arrow {
+  font-size: 1.3em;
+  color: #999;
+  margin: 15px 0;
+}
+
+.result-box {
+  background: #e8f5e9;
+  border: 3px solid #66bb6a;
+  border-radius: 12px;
+  padding: 15px 30px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(76,175,80,0.2);
+}
+
+.result-icon {
+  font-size: 1.8em;
+  margin-bottom: 8px;
+}
+
+.result-label {
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+/* Technical Components Section */
 h2 + h3 {
   margin-top: 30px;
 }
@@ -269,4 +447,26 @@ h3 {
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 10px;
   margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .diagram-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .process-column, .database-column {
+    margin: 0;
+  }
+  
+  .arrow-to-db, .arrow-to-matching {
+    transform: none;
+    position: static;
+    margin: 15px 0;
+  }
+  
+  .database-column {
+    margin-top: 30px;
+  }
 }

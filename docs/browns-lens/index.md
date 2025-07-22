@@ -1,17 +1,11 @@
 # [Browns Lens – Real-time SKU Recognition](../)
 
-<div class="project-header">
-  <div class="project-meta">
-    <div><strong>Project:</strong> Browns Lens – SKU-on-Camera</div>
-    <div><strong>Owner:</strong> Alassane Diop — Data Science / AI</div>
-    <div><strong>Status:</strong> 🧪 Pilot (2 stores)</div>
-    <div><strong>Demo:</strong> <a href="https://browns-internal/browns-lens">Live Demo</a></div>
-  </div>
-</div>
+**Project:** Browns Lens – SKU-on-Camera  
+**Owner:** Alassane Diop — Data Science / AI  
+**Status:** 🧪 Pilot (2 stores)  
+**Demo:** [Live Demo](https://browns-internal/browns-lens)
 
-<div class="two-column-layout">
-
-<div class="column-left">
+---
 
 ## 🎯 Problem
 Associates waste **~90 seconds** per customer typing style codes or flipping through catalogs to find products in the vitrine.
@@ -27,101 +21,46 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - Frees staff for upselling → projected **+1% conversion rate**
 - Clean, simple UI with Montserrat font and black/white aesthetic
 
-</div>
-
-<div class="column-right">
-
 ## 🔧 How Browns Lens Works
 
-<div class="shazam-diagram">
-  <div class="diagram-title">High-level Diagram of How Browns Lens Works<br>Behind the Scenes</div>
-  
-  <div class="diagram-content">
-    
-    <!-- Catalog Side -->
-    <div class="process-column catalog-column">
-      <div class="column-title">Catalog Products</div>
-      
-      <div class="process-box">
-        <div class="process-icon">📷</div>
-        <div class="process-label">Product Photos</div>
-      </div>
-      
-      <div class="process-arrow">↓</div>
-      
-      <div class="process-box">
-        <div class="process-icon">🖼️</div>
-        <div class="process-label">Pre-processing</div>
-      </div>
-      
-      <div class="process-arrow">↓</div>
-      
-      <div class="process-box fingerprint-box">
-        <div class="process-label">CLIP Embeddings</div>
-        <div class="process-sublabel">768-dim vectors</div>
-      </div>
-      
-      <div class="process-arrow">↓</div>
-      
-      <div class="process-box">
-        <div class="process-label">Vector Storage</div>
-      </div>
-      
-      <div class="arrow-to-db">→</div>
-    </div>
-    
-    <!-- Database -->
-    <div class="database-column">
-      <div class="database-box">
-        <div class="db-icon">🗄️</div>
-        <div class="db-label">Vector Database</div>
-        <div class="db-sublabel">50,000+ products</div>
-      </div>
-      
-      <div class="matching-box">
-        <div class="matching-label">Similarity<br>Matching</div>
-      </div>
-      
-      <div class="result-arrow">↓</div>
-      
-      <div class="result-box">
-        <div class="result-icon">👟</div>
-        <div class="result-label">Top 5 Products</div>
-      </div>
-    </div>
-    
-    <!-- Recognition Side -->
-    <div class="process-column recognize-column">
-      <div class="column-title">Identify Shoe</div>
-      
-      <div class="process-box">
-        <div class="process-icon">📱</div>
-        <div class="process-label">Camera Capture</div>
-      </div>
-      
-      <div class="process-arrow">↓</div>
-      
-      <div class="process-box">
-        <div class="process-icon">⚡</div>
-        <div class="process-label">Live Processing</div>
-      </div>
-      
-      <div class="process-arrow">↓</div>
-      
-      <div class="process-box fingerprint-box">
-        <div class="process-label">CLIP Embeddings</div>
-        <div class="process-sublabel">Real-time</div>
-      </div>
-      
-      <div class="arrow-to-matching">→</div>
-    </div>
-    
-  </div>
-</div>
+![Browns Lens Architecture Diagram](/workspace/browns_data_science/docs/browns-lens/browns-lens-architecture.svg)
 
-</div>
+*Note: If diagram doesn't display, see ASCII version below*
 
-</div>
+```
+High-level Diagram of How Browns Lens Works
+Behind the Scenes
+
+┌─────────────────────┐                    ┌─────────────────────┐
+│  Catalog Products   │                    │   Identify Shoe     │
+└─────────────────────┘                    └─────────────────────┘
+          │                                          │
+          ▼                                          ▼
+    📷 Product Photos                          📱 Camera Capture
+          │                                          │
+          ▼                                          ▼
+    🖼️ Pre-processing                          ⚡ Live Processing
+          │                                          │
+          ▼                                          ▼
+    🧠 CLIP Embeddings                         🧠 CLIP Embeddings
+       (768-dim vectors)                          (Real-time)
+          │                                          │
+          ▼                                          │
+    💾 Vector Storage                                │
+          │                                          │
+          └────────────┐      ┌─────────────────────┘
+                       ▼      ▼
+                 ┌────────────────┐
+                 │ Vector Database │
+                 │ 50,000+ items  │
+                 └────────────────┘
+                          │
+                          ▼
+                 🔍 Similarity Matching
+                          │
+                          ▼
+                    👟 Top 5 Products
+```
 
 ## 🛠️ Technical Components
 
@@ -142,4 +81,4 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 ---
 
-*Last updated: 2025-07-22* v1.6
+*Last updated: 2025-07-22* v1.7
