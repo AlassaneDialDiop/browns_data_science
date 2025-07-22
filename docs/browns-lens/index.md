@@ -40,55 +40,60 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 ## 🔧 System Architecture
 
-<div class="mermaid">
-graph TB
-    %% User Interface
-    SA[<b>Store Associate</b><br/>iPhone Camera]:::user
-    
-    %% Frontend Layer
-    UI[<b>Streamlit App</b><br/>WebRTC Capture<br/><i>Every 2 seconds</i>]:::frontend
-    
-    %% API Gateway
-    API[<b>API Gateway</b><br/>HTTPS Endpoint]:::api
-    
-    %% Processing Layer
-    LAMBDA[<b>AWS Lambda</b><br/>Image Processing<br/><i>Auto-scaling</i>]:::compute
-    
-    %% ML Model
-    CLIP[<b>CLIP Model</b><br/>ViT-B/32<br/>768-dim embeddings]:::ml
-    
-    %% Vector Database
-    SNOW[(<b>Snowflake</b><br/>Vector Database<br/>50,000+ products)]:::database
-    
-    %% Results
-    RESULTS[<b>Search Results</b><br/>Top 5 matches<br/><i>&lt;300ms response</i>]:::results
-    
-    %% Data Flow
-    SA -->|Points at shoe| UI
-    UI -->|Base64 image| API
-    API -->|Authenticated request| LAMBDA
-    LAMBDA -->|Preprocessed image| CLIP
-    CLIP -->|Feature vector| SNOW
-    SNOW -->|Similarity search| RESULTS
-    RESULTS -->|JSON response| UI
-    UI -->|Display products| SA
-    
-    %% Styling
-    classDef user fill:#000,stroke:#000,color:#fff,stroke-width:3px
-    classDef frontend fill:#f0f0f0,stroke:#000,stroke-width:2px
-    classDef api fill:#e0e0e0,stroke:#000,stroke-width:2px
-    classDef compute fill:#d0d0d0,stroke:#000,stroke-width:2px
-    classDef ml fill:#c0c0c0,stroke:#000,stroke-width:2px
-    classDef database fill:#b0b0b0,stroke:#000,stroke-width:2px
-    classDef results fill:#000,stroke:#000,color:#fff,stroke-width:2px
-    
-    class SA user
-    class UI frontend
-    class API api
-    class LAMBDA compute
-    class CLIP ml
-    class SNOW database
-    class RESULTS results
+<div class="system-diagram">
+  <div class="diagram-row">
+    <div class="node user-node">
+      <strong>Store Associate</strong><br>
+      iPhone Camera
+    </div>
+    <div class="arrow">📱</div>
+    <div class="node frontend-node">
+      <strong>Streamlit App</strong><br>
+      WebRTC Capture<br>
+      <em>Every 2 seconds</em>
+    </div>
+  </div>
+  
+  <div class="diagram-flow">↓</div>
+  
+  <div class="diagram-row">
+    <div class="node api-node">
+      <strong>API Gateway</strong><br>
+      HTTPS Endpoint
+    </div>
+    <div class="arrow">🌐</div>
+    <div class="node compute-node">
+      <strong>AWS Lambda</strong><br>
+      Image Processing<br>
+      <em>Auto-scaling</em>
+    </div>
+  </div>
+  
+  <div class="diagram-flow">↓</div>
+  
+  <div class="diagram-row">
+    <div class="node ml-node">
+      <strong>CLIP Model</strong><br>
+      ViT-B/32<br>
+      768-dim embeddings
+    </div>
+    <div class="arrow">🧠</div>
+    <div class="node database-node">
+      <strong>Snowflake</strong><br>
+      Vector Database<br>
+      50,000+ products
+    </div>
+  </div>
+  
+  <div class="diagram-flow">↓</div>
+  
+  <div class="diagram-row center">
+    <div class="node results-node">
+      <strong>Search Results</strong><br>
+      Top 5 matches<br>
+      <em>&lt;300ms response</em>
+    </div>
+  </div>
 </div>
 
 ## 📊 Impact Metrics
@@ -104,8 +109,6 @@ graph TB
 
 </div>
 
-<!-- Include Mermaid support -->
-{% include mermaid.html %}
 
 ---
 

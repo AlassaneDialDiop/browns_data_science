@@ -242,23 +242,100 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-emoji: emoji;
 }
 
-/* Mermaid diagram styling */
-.mermaid {
+/* System Architecture Diagram */
+.system-diagram {
   background: white;
   padding: 30px 20px;
   border-radius: 8px;
   margin: 20px 0;
   border: 2px solid #000;
   text-align: center;
+  font-size: 0.9em;
 }
 
-/* Override Mermaid text styling to match site */
-.mermaid text {
-  font-family: 'Montserrat', sans-serif !important;
+.diagram-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 15px 0;
 }
 
-/* Ensure mermaid diagrams are responsive */
-.mermaid svg {
-  max-width: 100%;
-  height: auto;
+.diagram-row.center {
+  justify-content: center;
+}
+
+.diagram-flow {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #000;
+  margin: 10px 0;
+}
+
+.node {
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 2px solid #000;
+  min-width: 140px;
+  font-size: 0.85em;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.user-node {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+}
+
+.frontend-node {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.api-node {
+  background: #e0e0e0;
+  color: #000;
+}
+
+.compute-node {
+  background: #d0d0d0;
+  color: #000;
+}
+
+.ml-node {
+  background: #c0c0c0;
+  color: #000;
+}
+
+.database-node {
+  background: #b0b0b0;
+  color: #000;
+}
+
+.results-node {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 1.2em;
+  color: #000;
+}
+
+/* Responsive design for diagram */
+@media (max-width: 768px) {
+  .diagram-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+  }
+  
+  .node {
+    min-width: 200px;
+  }
 }
