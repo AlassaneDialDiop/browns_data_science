@@ -92,4 +92,4 @@ graph LR
 
 ---
 
-*Last updated: 2025-07-22* v1.8
+*Last updated: 2025-07-22* v1.9
