@@ -33,45 +33,41 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 
 ## 🔧 How Browns Lens Works
 
-<div class="mermaid">
-graph TD
-    subgraph "Catalog Products"
-        A1[📷 Product Photos]
-        A2[🖼️ Pre-processing]
-        A3[🧠 CLIP Embeddings<br/>768-dim vectors]
-        A4[💾 Vector Storage]
-        
-        A1 --> A2
-        A2 --> A3
-        A3 --> A4
+
+```mermaid
+graph LR
+    subgraph "Build Catalog"
+        A1[Product Photos] --> A2[Pre-process]
+        A2 --> A3[CLIP Embed<br/>768-dim vectors]
+        A3 --> A4[Store Vectors]
     end
     
     subgraph "Vector Database"
-        DB[(🗄️ Snowflake<br/>50,000+ products)]
-        M[🔍 Similarity<br/>Matching]
-        
-        DB --> M
+        DB[(Snowflake<br/>50K+ products)]
     end
     
-    subgraph "Identify Shoe"
-        B1[📱 Camera Capture]
-        B2[⚡ Live Processing]
-        B3[🧠 CLIP Embeddings<br/>Real-time]
-        
-        B1 --> B2
-        B2 --> B3
+    subgraph "Recognize Shoe"
+        B1[Camera Capture] --> B2[Live Process]
+        B2 --> B3[CLIP Embed<br/>Real-time]
+    end
+    
+    subgraph "Matching"
+        M{Similarity<br/>Matching}
     end
     
     A4 --> DB
+    DB --> M
     B3 --> M
-    M --> R[👟 Top 5 Products]
+    M --> R[Top 5 Products]
     
-    style A3 fill:#e8eaf6,stroke:#9fa8da,stroke-width:2px
-    style B3 fill:#e8eaf6,stroke:#9fa8da,stroke-width:2px
-    style DB fill:#fff3e0,stroke:#ffb74d,stroke-width:3px
-    style M fill:#f3e5f5,stroke:#ba68c8,stroke-width:2px
-    style R fill:#e8f5e9,stroke:#66bb6a,stroke-width:3px
-</div>
+    style A3 fill:#e8eaf6,stroke:#9fa8da
+    style B3 fill:#e8eaf6,stroke:#9fa8da
+    style DB fill:#fff3e0,stroke:#ffb74d
+    style M fill:#f3e5f5,stroke:#ba68c8
+    style R fill:#e8f5e9,stroke:#66bb6a
+```
+
+*Note: If Mermaid doesn't render on GitHub Pages, it will show as a code block*
 
 </div>
 
@@ -93,9 +89,6 @@ graph TD
 
 ### 🐳 Deployment
 **Docker on AWS** – Containerized deployment ensures consistent environments across development, testing, and production. Docker images package all dependencies, making deployments reliable and rollbacks simple. AWS provides the infrastructure with auto-scaling and high availability.
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true});</script>
 
 ---
 
