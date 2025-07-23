@@ -1,11 +1,17 @@
 # [Browns Lens – Real-time SKU Recognition](../)
 
-**Project:** Browns Lens – SKU-on-Camera  
-**Owner:** Alassane Diop — Data Science / AI  
-**Status:** 🧪 Pilot (2 stores)  
-**Demo:** [Live Demo](https://browns-internal/browns-lens)
+<div class="project-header">
+  <div class="project-meta">
+    <div><strong>Project:</strong> Browns Lens – SKU-on-Camera</div>
+    <div><strong>Owner:</strong> Alassane Diop — Data Science / AI</div>
+    <div><strong>Status:</strong> 🧪 Pilot (2 stores)</div>
+    <div><strong>Demo:</strong> <a href="https://browns-internal/browns-lens">Live Demo</a></div>
+  </div>
+</div>
 
----
+<div class="two-column-layout">
+
+<div class="column-left">
 
 ## 🎯 Problem
 Associates waste **~90 seconds** per customer typing style codes or flipping through catalogs to find products in the vitrine.
@@ -21,46 +27,55 @@ Associates waste **~90 seconds** per customer typing style codes or flipping thr
 - Frees staff for upselling → projected **+1% conversion rate**
 - Clean, simple UI with Montserrat font and black/white aesthetic
 
+</div>
+
+<div class="column-right">
+
 ## 🔧 How Browns Lens Works
 
-![Browns Lens Architecture Diagram](/workspace/browns_data_science/docs/browns-lens/browns-lens-architecture.svg)
+<div class="mermaid">
+graph TD
+    subgraph "Catalog Products"
+        A1[📷 Product Photos]
+        A2[🖼️ Pre-processing]
+        A3[🧠 CLIP Embeddings<br/>768-dim vectors]
+        A4[💾 Vector Storage]
+        
+        A1 --> A2
+        A2 --> A3
+        A3 --> A4
+    end
+    
+    subgraph "Vector Database"
+        DB[(🗄️ Snowflake<br/>50,000+ products)]
+        M[🔍 Similarity<br/>Matching]
+        
+        DB --> M
+    end
+    
+    subgraph "Identify Shoe"
+        B1[📱 Camera Capture]
+        B2[⚡ Live Processing]
+        B3[🧠 CLIP Embeddings<br/>Real-time]
+        
+        B1 --> B2
+        B2 --> B3
+    end
+    
+    A4 --> DB
+    B3 --> M
+    M --> R[👟 Top 5 Products]
+    
+    style A3 fill:#e8eaf6,stroke:#9fa8da,stroke-width:2px
+    style B3 fill:#e8eaf6,stroke:#9fa8da,stroke-width:2px
+    style DB fill:#fff3e0,stroke:#ffb74d,stroke-width:3px
+    style M fill:#f3e5f5,stroke:#ba68c8,stroke-width:2px
+    style R fill:#e8f5e9,stroke:#66bb6a,stroke-width:3px
+</div>
 
-*Note: If diagram doesn't display, see ASCII version below*
+</div>
 
-```
-High-level Diagram of How Browns Lens Works
-Behind the Scenes
-
-┌─────────────────────┐                    ┌─────────────────────┐
-│  Catalog Products   │                    │   Identify Shoe     │
-└─────────────────────┘                    └─────────────────────┘
-          │                                          │
-          ▼                                          ▼
-    📷 Product Photos                          📱 Camera Capture
-          │                                          │
-          ▼                                          ▼
-    🖼️ Pre-processing                          ⚡ Live Processing
-          │                                          │
-          ▼                                          ▼
-    🧠 CLIP Embeddings                         🧠 CLIP Embeddings
-       (768-dim vectors)                          (Real-time)
-          │                                          │
-          ▼                                          │
-    💾 Vector Storage                                │
-          │                                          │
-          └────────────┐      ┌─────────────────────┘
-                       ▼      ▼
-                 ┌────────────────┐
-                 │ Vector Database │
-                 │ 50,000+ items  │
-                 └────────────────┘
-                          │
-                          ▼
-                 🔍 Similarity Matching
-                          │
-                          ▼
-                    👟 Top 5 Products
-```
+</div>
 
 ## 🛠️ Technical Components
 
@@ -79,6 +94,9 @@ Behind the Scenes
 ### 🐳 Deployment
 **Docker on AWS** – Containerized deployment ensures consistent environments across development, testing, and production. Docker images package all dependencies, making deployments reliable and rollbacks simple. AWS provides the infrastructure with auto-scaling and high availability.
 
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+
 ---
 
-*Last updated: 2025-07-22* v1.7
+*Last updated: 2025-07-22* v1.8
