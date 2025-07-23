@@ -1,0 +1,27 @@
+<!-- Mermaid.js support for GitHub Pages -->
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+// Initialize Mermaid with custom configuration
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'neutral',
+  themeVariables: {
+    primaryColor: '#fff',
+    primaryTextColor: '#000',
+    primaryBorderColor: '#000',
+    lineColor: '#666',
+    secondaryColor: '#f8f9fa',
+    tertiaryColor: '#e8eaf6',
+    background: '#fff',
+    mainBkg: '#fff',
+    secondBkg: '#f8f9fa',
+    tertiaryBkg: '#e8eaf6'
+  }
+});
+
+// Run Mermaid on elements with class="language-mermaid" (Jekyll's default)
+document.addEventListener('DOMContentLoaded', async () => {
+  await mermaid.run({querySelector: 'code.language-mermaid'});
+});
+</script>
