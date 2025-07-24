@@ -24,7 +24,6 @@ Marketing teams only see the **last touchpoint** before purchase, missing the co
 - **Step B**: Apply 5 attribution strategies 
 - **Step C**: Format output matching production tables
 - Supports **7, 14, and 28-day** attribution windows
-- **98.43% alignment** with existing last-click model
 
 ## 📈 Why It Matters
 - **True ROI** → See which channels initiate vs close sales
@@ -39,41 +38,53 @@ Marketing teams only see the **last touchpoint** before purchase, missing the co
 
 ## 🔧 How Multitouch Attribution Works
 
-### Simple 3-Step Architecture
+### Data Flow & Granularity
 
 ```mermaid
 graph TD
+    %% Source Tables
+    subgraph Sources["<b>Source Tables (DAG Dependencies)</b>"]
+        S1[📊 UNIFIED_LINEITEMS_WITH_SFCC<br/><i>Order details</i>]
+        S2[🔍 SESSION_ORDERS<br/><i>Truth sessions</i>]
+        S3[👥 SESSIONS<br/><i>All web sessions</i>]
+        S4[📧 DS_CUSTOMER_INFO<br/><i>Email mapping</i>]
+    end
+    
     %% Step A: Session Collection
-    subgraph StepA["<b>Step A: Session Collection</b>"]
-        A1[Web Orders] --> A2[Match Sessions]
-        A2 --> A3["Sessions within<br/>Attribution Window<br/><i>(7, 14, 28 days)</i>"]
+    subgraph StepA["<b>Step A: Session Collection</b><br/><i>Granularity: order_id × session_id × window</i>"]
+        A1["Output: MULTITOUCH_ORDERED_SESSIONS<br/><b>Keys:</b> order_id, session_id, attribution_window_days<br/><b>Rows:</b> ~2.5M YTD(all sessions for all orders)"]
     end
     
     %% Step B: Attribution Logic
-    subgraph StepB["<b>Step B: Attribution Strategies</b>"]
-        B1["Apply 5 Methods:<br/>• LastTouch<br/>• FirstTouch<br/>• Frequency<br/>• EqualWeight<br/>• Custom Mix"]
-        B1 --> B2[Daily Journey<br/>Aggregation]
+    subgraph StepB["<b>Step B: Attribution & Aggregation</b><br/><i>Granularity: date × method × journey</i>"]
+        B1["Apply 5 Attribution Methods"]
+        B2["<b>AGGREGATE:</b> Sessions → Daily Journeys<br/><b>Keys:</b> order_date, journey_method,<br/>province, Steps 1-4, attribution_window<br/><b>Rows:</b> ~1M YTD (unique journey patterns)"]
+        B1 --> B2
     end
     
     %% Step C: Final Output
-    subgraph StepC["<b>Step C: Format Output</b>"]
-        C1[Match Production<br/>Table Structure]
-        C1 --> C2[Add Attribution<br/>Dimensions]
+    subgraph StepC["<b>Step C: Production Format</b><br/><i>Granularity: date × channel × region × method × window</i>"]
+        C1["Output: Final Attribution Table<br/><b>Keys:</b> calendar_date, channel, region,<br/>journey_method, attribution_window_days<br/><b>Rows:</b> ~500K YTD(all combinations)"]
     end
     
-    %% Flow connections
-    A3 --> B1
-    B2 --> C1
+    %% Connections with table names
+    S1 --> A1
+    S2 --> A1
+    S3 --> A1
+    S4 --> A1
     
-    %% Final outputs
-    C2 --> D1[📊 Daily Attribution Table]
+    A1 --> |"3M rows → 50K patterns"| B2
+    B2 --> |"Uses prep table"| C1
+    S1 --> |"Sales redistribution"| C1
     
     %% Styling
+    classDef sourceStyle fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     classDef stepStyle fill:#f9f9f9,stroke:#333,stroke-width:2px
-    classDef outputStyle fill:#e8f5e9,stroke:#66bb6a,stroke-width:3px
+    classDef aggregateStyle fill:#fff3e0,stroke:#f57c00,stroke-width:3px
     
+    class S1,S2,S3,S4 sourceStyle
     class StepA,StepB,StepC stepStyle
-    class D1 outputStyle
+    class B2 aggregateStyle
 ```
 
 </div>
@@ -116,6 +127,40 @@ Transforms attribution results to match existing table structure:
 - Adds `attribution_window_days` column
 - Maintains backward compatibility
 - Zero changes needed for existing reports
+
+## 📋 DAG Dependencies & Table Reference
+
+### Input Tables (Must be fresh before running)
+```sql
+-- Step A Dependencies
+PROD_ANALYZE.WEB_TRAFFIC.UNIFIED_LINEITEMS_WITH_SFCC  -- Orders & sales
+PROD_ANALYZE.WEB_TRAFFIC.SESSION_ORDERS               -- Order-session mapping
+PROD_ANALYZE.WEB_TRAFFIC.SESSIONS                     -- All web sessions
+PROD_SANDBOX.ADIOP.DS_CUSTOMER_INFO                  -- Customer emails
+PROD_SANDBOX.ADIOP.CUSTOMER_JOURNEY_TIMELINE         -- New/existing flags
+
+-- Step C Additional Dependencies  
+PROD_ANALYZE.GENERAL.FISCAL_CALENDAR_EXTENDED        -- Date dimensions
+PROD_ANALYZE.WEB_TRAFFIC.MISSING_SESSIONS_MARGIN_MONTHLY -- Corrections
+```
+
+### Output Tables Created
+```sql
+-- Step A Output (Session-level)
+PROD_SANDBOX.ADIOP.MULTITOUCH_ORDERED_SESSIONS       -- 3M rows
+
+-- Step B Output (Daily aggregated)
+PROD_SANDBOX.ADIOP.MULTITOUCH_DAILY_JOURNEYS_PREP    -- 50K rows
+
+-- Step C Output (Production format)
+[Custom table name based on use case]                 -- 500K rows
+```
+
+### Data Volume & Performance
+- **Step A → B**: Aggregates 3M session rows into 50K daily journey patterns (60:1 reduction)
+- **Step B → C**: Expands 50K patterns into 500K channel×date combinations for reporting
+- **Full refresh**: ~5 minutes for 1 year of data
+- **Incremental**: ~30 seconds for daily append
 
 
 ---
