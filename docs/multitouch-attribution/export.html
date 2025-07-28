@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multitouch Attribution – Customer Journey Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            border-bottom: 3px solid #000;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #000;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.3em;
+            margin-top: 1.5em;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 1.2em;
+        }
+        
+        .project-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .project-meta strong {
+            font-weight: 600;
+        }
+        
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        
+        .column-left, .column-right {
+            padding: 20px;
+        }
+        
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            font-family: 'Courier New', monospace;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .mermaid-placeholder {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 40px 20px;
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin: 20px 0;
+        }
+        
+        /* Print optimization */
+        @media print {
+            body {
+                font-size: 10pt;
+                margin: 0;
+                padding: 10mm;
+            }
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+            .no-print {
+                display: none;
+            }
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            pre, table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Multitouch Attribution – Customer Journey Analytics</h1>
+    
+    <div class="project-header">
+        <div class="project-meta">
+            <div><strong>Project:</strong> Multitouch Attribution Model</div>
+            <div><strong>Owner:</strong> Alassane Diop — Data Science / AI</div>
+            <div><strong>Status:</strong> Passed to BI</div>
+            <div><strong>Date:</strong> July 2024</div>
+        </div>
+    </div>
+    
+    <div class="two-column-layout">
+        <div class="column-left">
+            <h2>📊 Problem</h2>
+            <p>Marketing teams only see the <strong>last touchpoint</strong> before purchase, missing the complete customer journey. This leads to:</p>
+            <ul>
+                <li>Undervaluing awareness channels (SEO, Social)</li>
+                <li>Overinvesting in bottom-funnel tactics</li>
+                <li>Missing synergies between channels</li>
+            </ul>
+            
+            <h2>💡 Solution</h2>
+            <p><strong>3-step modular SQL design</strong> that tracks all customer touchpoints:</p>
+            <ul>
+                <li><strong>Step A</strong>: Capture all sessions within attribution windows</li>
+                <li><strong>Step B</strong>: Apply 5 attribution strategies</li>
+                <li><strong>Step C</strong>: Format output matching production tables</li>
+                <li>Supports <strong>7, 14, and 28-day</strong> attribution windows</li>
+            </ul>
+            
+            <h2>📈 Why It Matters</h2>
+            <ul>
+                <li><strong>True ROI</strong> → See which channels initiate vs close sales</li>
+                <li><strong>Better budgeting</strong> → Credit fairly channels that start journeys</li>
+                <li><strong>Journey insights</strong> → 45% of customers touch 2+ channels</li>
+                <li><strong>Flexibility</strong> → Compare attribution models side-by-side</li>
+                <li><strong>Future-proof</strong> → Easy to add new strategies</li>
+            </ul>
+        </div>
+        
+        <div class="column-right">
+            <h2>🔧 How Multitouch Attribution Works</h2>
+            <h3>Data Flow & Granularity</h3>
+            
+            <div class="mermaid-placeholder">
+                <strong>Data Flow Diagram</strong><br><br>
+                <strong>Source Tables (DAG Dependencies):</strong><br>
+                • UNIFIED_LINEITEMS_WITH_SFCC (Order details)<br>
+                • SESSION_ORDERS (Truth sessions)<br>
+                • SESSIONS (All web sessions)<br>
+                • DS_CUSTOMER_INFO (Email mapping)<br><br>
+                
+                <strong>Step A: Session Collection</strong><br>
+                Granularity: order_id × session_id × window<br>
+                Output: MULTITOUCH_ORDERED_SESSIONS<br>
+                ~2.5M rows YTD<br><br>
+                
+                <strong>Step B: Attribution & Aggregation</strong><br>
+                Granularity: date × method × journey<br>
+                Sessions → Daily Journeys<br>
+                ~1M rows YTD<br><br>
+                
+                <strong>Step C: Production Format</strong><br>
+                Granularity: date × channel × region × method × window<br>
+                ~500K rows YTD
+            </div>
+        </div>
+    </div>
+    
+    <h2>🛠️ Technical Architecture</h2>
+    
+    <h3>Step A: Session-Level Data Collection</h3>
+    <p><strong>File:</strong> <code>multitouch_stepA_ordered_sessions.sql</code></p>
+    <p>Captures the complete customer journey by:</p>
+    <ul>
+        <li>Starting with all web orders in the date range</li>
+        <li>Finding all customer sessions before each order</li>
+        <li>Supporting multiple attribution windows (7, 14, 28 days)</li>
+        <li>Preserving the "truth" session that generated the order</li>
+        <li>Handling edge cases (cancelled orders, missing emails)</li>
+    </ul>
+    <p><strong>Key Idea:</strong> Each order appears 3 times (once per attribution window), allowing flexible analysis without reprocessing.</p>
+    
+    <h3>Step B: Attribution Strategy Application</h3>
+    <p><strong>File:</strong> <code>multitouch_stepB_prep.sql</code></p>
+    <p>Applies 5 different attribution models:</p>
+    <ol>
+        <li><strong>LastTouch:</strong> 100% credit to final touchpoint (matches current production)</li>
+        <li><strong>FirstTouch:</strong> 100% credit to initial touchpoint</li>
+        <li><strong>Frequency:</strong> Credit to most frequent channel in journey</li>
+        <li><strong>EqualWeight:</strong> Split credit equally across all touchpoints</li>
+        <li><strong>Custom Mix:</strong> Balanced 25% blend of all strategies</li>
+    </ol>
+    <p><strong>Output:</strong> Pre-aggregated daily journeys by strategy, ready for analysis.</p>
+    
+    <h3>Step C: Production-Ready Formatting</h3>
+    <p><strong>File:</strong> <code>multitouch_stepC_daily_agg.sql</code></p>
+    <p>Transforms attribution results to match existing table structure:</p>
+    <ul>
+        <li>All original columns preserved (dates, sales, sessions)</li>
+        <li>Adds <code>journey_method</code> column for attribution strategy</li>
+        <li>Adds <code>attribution_window_days</code> column</li>
+        <li>Maintains backward compatibility</li>
+        <li>Zero changes needed for existing reports</li>
+    </ul>
+    
+    <h2>📋 DAG Dependencies & Table Reference</h2>
+    
+    <h3>Input Tables (Must be fresh before running)</h3>
+    <pre>-- Step A Dependencies
+PROD_ANALYZE.WEB_TRAFFIC.UNIFIED_LINEITEMS_WITH_SFCC  -- Orders & sales
+PROD_ANALYZE.WEB_TRAFFIC.SESSION_ORDERS               -- Order-session mapping
+PROD_ANALYZE.WEB_TRAFFIC.SESSIONS                     -- All web sessions
+PROD_SANDBOX.ADIOP.DS_CUSTOMER_INFO                  -- Customer emails
+PROD_SANDBOX.ADIOP.CUSTOMER_JOURNEY_TIMELINE         -- New/existing flags
+
+-- Step C Additional Dependencies  
+PROD_ANALYZE.GENERAL.FISCAL_CALENDAR_EXTENDED        -- Date dimensions
+PROD_ANALYZE.WEB_TRAFFIC.MISSING_SESSIONS_MARGIN_MONTHLY -- Corrections</pre>
+    
+    <h3>Output Tables Created</h3>
+    <pre>-- Step A Output (Session-level)
+PROD_SANDBOX.ADIOP.MULTITOUCH_ORDERED_SESSIONS       -- 2.5M rows
+
+-- Step B Output (Daily aggregated)
+PROD_SANDBOX.ADIOP.MULTITOUCH_DAILY_JOURNEYS_PREP    -- 1M rows
+
+-- Step C Output (Production format)
+[Custom table name based on use case]                 -- 500K rows</pre>
+    
+    <h3>Data Volume & Performance</h3>
+    <ul>
+        <li><strong>Step A → B:</strong> Aggregates 2.5M session rows into 1M daily journey patterns</li>
+        <li><strong>Step B → C:</strong> Formats for production reporting needs</li>
+        <li><strong>Full refresh:</strong> ~5 minutes for 1 year of data</li>
+        <li><strong>Incremental:</strong> ~30 seconds for daily append</li>
+    </ul>
+    
+    <hr style="margin-top: 50px;">
+    <p style="text-align: center; color: #666;">
+        <em>Last updated: 2025-07-24 v1.0</em><br>
+        <span class="no-print">To save as PDF: Press Ctrl+P (or Cmd+P on Mac) and select "Save as PDF"</span>
+    </p>
+</body>
+</html>
