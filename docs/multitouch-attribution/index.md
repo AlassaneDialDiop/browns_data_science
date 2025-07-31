@@ -3,7 +3,7 @@
 <div class="project-header">
   <div class="project-meta">
     <div><strong>Project:</strong> Multitouch Attribution Model</div>
-    <div><strong>Snowflake Folder:</strong> https://app.snowflake.com/browns/prod/#/multitouch-fDDh2Mqff</div>
+    <div><strong>Snowflake Folder:</strong> <a>https://app.snowflake.com/browns/prod/#/multitouch-fDDh2Mqff</a></div>
     <div><strong>Status:</strong> ✅ Confirmed - Handover to BI </div>
   </div>
 </div>
