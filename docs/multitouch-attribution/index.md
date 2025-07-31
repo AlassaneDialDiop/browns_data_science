@@ -14,8 +14,7 @@
 
 ## 📊 Problem
 Marketing team only see the **last touchpoint** before purchase, missing the complete customer journey. This leads to:
-- Undervaluing awareness channels (SEO, Social)
-- Overinvesting in bottom-funnel tactics
+- Undervaluing awareness channels (Google A, Social)
 - Missing synergies between channels
 
 ## 💡 Solution  
@@ -166,3 +165,4 @@ PROD_SANDBOX.ADIOP.MULTITOUCH_DAILY_JOURNEYS_PREP    -- 50K rows
 ---
 
 *Last updated: 2025-07-31* v1.0
+Built with Claude
