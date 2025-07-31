@@ -3,8 +3,8 @@
 <div class="project-header">
   <div class="project-meta">
     <div><strong>Project:</strong> Multitouch Attribution Model</div>
-    <div><strong>Owner:</strong> Alassane Diop — Data Science / AI</div>
-    <div><strong>Status:</strong> Passed to BI </div>
+    <div><strong>Snowflake Folder:</strong> https://app.snowflake.com/browns/prod/#/multitouch-fDDh2Mqff</div>
+    <div><strong>Status:</strong> ✅ Confirmed - Handover to BI </div>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
 <div class="column-left">
 
 ## 📊 Problem
-Marketing teams only see the **last touchpoint** before purchase, missing the complete customer journey. This leads to:
+Marketing team only see the **last touchpoint** before purchase, missing the complete customer journey. This leads to:
 - Undervaluing awareness channels (SEO, Social)
 - Overinvesting in bottom-funnel tactics
 - Missing synergies between channels
@@ -157,7 +157,7 @@ PROD_SANDBOX.ADIOP.MULTITOUCH_DAILY_JOURNEYS_PREP    -- 50K rows
 ```
 
 ### Data Volume & Performance
-- **Step A → B**: Aggregates 3M session rows into 50K daily journey patterns (60:1 reduction)
+- **Step A → B**: Aggregates 3M session rows into 50K daily journey patterns
 - **Step B → C**: Expands 50K patterns into 500K channel×date combinations for reporting
 - **Full refresh**: ~5 minutes for 1 year of data
 - **Incremental**: ~30 seconds for daily append
@@ -165,4 +165,4 @@ PROD_SANDBOX.ADIOP.MULTITOUCH_DAILY_JOURNEYS_PREP    -- 50K rows
 
 ---
 
-*Last updated: 2025-07-24* v1.0
+*Last updated: 2025-07-31* v1.0
