@@ -5,11 +5,11 @@
 
 ## Active Projects
 
-<!-- ### [Browns Lens - SKU Recognition](./browns-lens/)
-*Real-time shoe recognition for store associates*
-- **Status**: 🧪 Pilot (2 stores)
+### [Browns Lens - Shoe Recognition](./browns-lens/)
+*Real-time shoe recognition*
+- **Status**: 🧪 Testing
 - **Impact**: -87% lookup time, +19pt accuracy
-- **Tech**: CLIP embeddings, Snowflake vector DB, Streamlit WebRTC -->
+- **Tech**: Streamlit + Snowflake AI-Embed
 
 ### [Multitouch Attribution](./multitouch-attribution/)
 *Customer journey analytics beyond last-click*
