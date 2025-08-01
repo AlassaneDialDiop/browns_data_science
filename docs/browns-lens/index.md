@@ -50,7 +50,7 @@ graph TB
         G --> H[🔍 Vector Search]
     end
     
-    D --> DB[("❄️ Snowflake<br/>Vector Database<br/><i>50K+ products</i>")]
+    D --> DB[("❄️ Snowflake<br/>Vector Database<br/><i>X products</i>")]
     
     DB --> H
     H --> R["👟 <b>Top 5 Products</b><br/><i>Multi-face scoring</i>"]
@@ -95,7 +95,7 @@ graph TB
 **Snowflake Native Session** – All processing happens within Snowflake using `get_active_session()`. Images uploaded via `session.file.put()` to internal stages, eliminating external dependencies. Processing time ~2 seconds including upload, embedding, and search.
 
 ### ❄️ Vector Storage & Search
-**Snowflake Vector Database** – Pre-computed embeddings for 50,000+ products stored natively. Advanced multi-face scoring algorithm averages similarity across multiple product angles (faces 1-4) for improved accuracy. Uses `VECTOR_COSINE_SIMILARITY` for ultra-fast matching.
+**Snowflake Vector Database** – Pre-computed embeddings for X products stored natively. Advanced multi-face scoring algorithm averages similarity across multiple product angles (faces 1-4) for improved accuracy. Uses `VECTOR_COSINE_SIMILARITY` for ultra-fast matching.
 
 ### 🚀 Deployment
 **Single-File Streamlit App** – Complete application in one `app.py` file with embedded database class. No external infrastructure, containers, or services required. Deploy directly to Snowflake Streamlit with simple upload. Built-in error handling and file cleanup.
