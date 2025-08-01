@@ -54,13 +54,7 @@ graph TB
     
     DB --> H
     H --> R["👟 <b>Top 5 Products</b><br/><i>Multi-face scoring</i>"]
-    
-    %% V5 Features
-    subgraph Features["<b>V5 Features</b>"]
-        I[📄 Single File Deploy]
-        J[🔄 Auto-search]
-        K[⚡ session.file.put]
-    end
+  
     
     %% Styling
     classDef buildStyle fill:#fff,stroke:#000,stroke-width:2px
