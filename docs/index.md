@@ -8,7 +8,6 @@
 ### [Browns Lens - Shoe Recognition](./browns-lens/)
 *Real-time shoe recognition*
 - **Status**: 🧪 Testing
-- **Impact**: -87% lookup time, +19pt accuracy
 - **Tech**: Streamlit + Snowflake AI-Embed
 
 ### [Multitouch Attribution](./multitouch-attribution/)
