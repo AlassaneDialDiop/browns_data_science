@@ -1,4 +1,4 @@
-# Browns Data Science Projects
+# Browns — Data Science Projects
 *alassane.diop@brownsshoes.com*
 
 ---
