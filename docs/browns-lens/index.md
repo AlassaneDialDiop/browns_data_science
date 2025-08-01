@@ -1,4 +1,4 @@
-# [Browns Lens – Real-time SKU Recognition](../)
+# [Browns Lens – Real-time Shoe Recognition](../)
 
 <div class="project-header">
   <div class="project-meta">
