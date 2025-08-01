@@ -516,42 +516,16 @@ SELECT AI_EMBED('voyage-multimodal-3', 'test') AS test_embedding;
 - **Auto-search**: Automatically processes photos when taken
 - **File Upload Fix**: Uses `session.file.put()` instead of SQL PUT command
 - **Multi-face Scoring**: Averages similarity across multiple product angles
-- **Clean UI**: Black/white theme with Montserrat font
 
-### 🔧 Critical Fixes Included
-- **PUT_FILES Error**: Fixed with `session.file.put()` method
-- **Vector Conversion**: Proper VECTOR to ARRAY conversion
-- **File Cleanup**: Automatic cleanup of staged files
-- **Error Handling**: Comprehensive error catching and logging
-
-## 🔍 Troubleshooting
-
-### Common Issues
-
-**"Unsupported statement type 'PUT_FILES'"**
-- **Fixed in V5**: Using `session.file.put()` instead of SQL PUT
-- This was the main blocking issue - now resolved
-
-**Camera not working**
-- Check if `st.camera_input` is available in your Snowflake version
-- Contact Snowflake support if camera input is blocked by organization policy
 
 **No search results**
 - Verify `BROWNSLENS_STAGE` exists and has proper permissions
 - Check that `SHOE_IMAGE_EMBEDDINGS` table is populated
-- Adjust threshold value (try 0.10 instead of 0.13)
+- Adjust threshold value (current 0.13)
 
 **Database connection failed**
 - Ensure you're running in Snowflake Streamlit environment
 - `get_active_session()` only works within Snowflake
-
-## 📞 Support
-
-For issues with this code:
-1. Check troubleshooting section above
-2. Verify all prerequisites are met
-3. Contact data science team for schema/permissions issues
-4. This code was last tested on Snowflake version 9.21.0
 
 ---
 
