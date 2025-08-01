@@ -22,7 +22,7 @@
 ## 📈 Good to know
 - Prototype works for **Men* shoes in the catalog as of July31
 
-## 💡 Solution  
+## Stack  
 - **Snowflake Streamlit** with native camera input for instant photo capture
 - **AI_EMBED** processes images using voyage-multimodal-3 in <2s
 - **Snowflake vector DB** finds top-5 matches from  shoe catalog
