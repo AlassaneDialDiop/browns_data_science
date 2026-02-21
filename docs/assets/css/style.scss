@@ -61,8 +61,9 @@ strong {
 .sidebar-nav {
   width: 280px;
   min-width: 280px;
-  padding: 30px 20px;
-  border-right: 2px solid #eee;
+  padding: 32px 24px;
+  border-right: 1px solid #e0e0e0;
+  background: #fafafa;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -73,9 +74,9 @@ strong {
 .sidebar-title {
   font-size: 1.1em;
   font-weight: 700;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #000;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ccc;
 }
 
 .sidebar-title a {
@@ -100,7 +101,7 @@ strong {
 h1 {
   font-size: 2.2em;
   margin-bottom: 0.8em;
-  border-bottom: 3px solid #000;
+  border-bottom: 1px solid #ccc;
   padding-bottom: 0.4em;
 }
 
@@ -108,7 +109,7 @@ h2 {
   font-size: 1.6em;
   margin-top: 1.8em;
   margin-bottom: 0.8em;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 0.3em;
 }
 
@@ -117,7 +118,7 @@ h3 {
   margin-top: 1.5em;
   margin-bottom: 0.8em;
   color: #333;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 1px solid #eee;
   padding-bottom: 10px;
 }
 
@@ -201,7 +202,7 @@ pre {
 .project-header {
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 3px solid #000;
+  border-bottom: 1px solid #ddd;
 }
 
 .project-meta {
@@ -221,7 +222,7 @@ pre {
 .report-header {
   margin-bottom: 30px;
   padding: 20px 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #ddd;
 }
 
 .report-meta {
@@ -259,7 +260,7 @@ pre {
 
 .sidebar-nav .file-tree {
   font-size: 0.82em;
-  line-height: 1.7;
+  line-height: 2.0;
 }
 
 .file-tree {
@@ -292,9 +293,9 @@ pre {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-top: 16px;
-  margin-bottom: 4px;
-  padding-bottom: 4px;
+  margin-top: 22px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
   border-bottom: 1px solid #ddd;
   color: #000;
 }
@@ -310,8 +311,8 @@ pre {
   font-size: 0.9em;
   font-weight: 600;
   color: #555;
-  margin-top: 8px;
-  margin-bottom: 2px;
+  margin-top: 12px;
+  margin-bottom: 4px;
 }
 
 /* Items (leaf nodes) */
@@ -367,7 +368,7 @@ pre {
 .tabs-bar {
   display: flex;
   gap: 4px;
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #ccc;
   margin-bottom: 0;
 }
 
@@ -395,14 +396,14 @@ pre {
   color: #000;
   font-weight: 700;
   background: #fff;
-  border-color: #000;
-  border-bottom: 2px solid #fff;
+  border-color: #bbb;
+  border-bottom: 1px solid #fff;
 }
 
 .tab-panel {
   display: none;
   padding: 24px 0;
-  border: 2px solid #000;
+  border: 1px solid #ccc;
   border-top: none;
   border-radius: 0 0 6px 6px;
   padding: 24px;
@@ -452,7 +453,7 @@ img.emoji {
     height: auto;
     position: static;
     border-right: none;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #e0e0e0;
     padding: 20px;
   }
 
