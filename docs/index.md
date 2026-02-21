@@ -1,16 +1,35 @@
-# Browns — Data Science Projects
+# Browns -- Data Science
 *alassane.diop@brownsshoes.com*
 
 ---
 
-## Active Projects
+<div class="file-tree">
+<ul>
 
-### [Browns Lens - Shoe Recognition](./browns-lens/)
-*Real-time shoe recognition*
-- **Status**: 🧪 Testing
-- **Tech**: Streamlit + Snowflake AI-Embed
+  <li class="folder"><strong>Tableau Reports</strong>
+    <ul>
+      <li class="folder"><strong>CRM Reports</strong>
+        <ul>
+          <li class="item"><a href="./omnichannel-attribution/">OmniChannel Attribution</a> <span class="badge badge-production">Production</span></li>
+          <li class="item">Unified Acquisition <span class="badge badge-soon">coming soon</span></li>
+        </ul>
+      </li>
+      <li class="folder"><strong>Others</strong>
+        <ul>
+          <li class="item">Store Traffic Dashboard <span class="badge badge-soon">coming soon</span></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 
-### [Multitouch Attribution](./multitouch-attribution/)
-*Customer journey analytics beyond last-click*
-- **Status**:  ✅ Confirmed - Handover to BI
-- **Tech**: Entirely SQL, 3 steps to create the final table
+  <li class="folder"><strong>Other Projects</strong>
+    <ul>
+      <li class="item"><a href="./browns-lens/">Browns Lens</a> <span class="badge badge-testing">Testing</span></li>
+      <li class="item"><a href="./multitouch-attribution/">Multitouch Attribution</a> <span class="badge badge-confirmed">Confirmed</span></li>
+      <li class="item">NPS Comments Keywords <span class="badge badge-soon">coming soon</span></li>
+      <li class="item">Tableau GPT Descriptions <span class="badge badge-soon">coming soon</span></li>
+    </ul>
+  </li>
+
+</ul>
+</div>

@@ -25,3 +25,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   await mermaid.run({querySelector: 'code.language-mermaid'});
 });
 </script>
+
+<!-- Tab switching for Tableau report pages -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var group = btn.closest('.tabs-container');
+      group.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      group.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      group.querySelector('#' + btn.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+});
+</script>

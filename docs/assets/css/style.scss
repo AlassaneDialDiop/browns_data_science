@@ -270,3 +270,158 @@ h3 {
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
+
+/* ========== File-tree navigation (index page) ========== */
+
+.file-tree {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  line-height: 1.8;
+}
+
+.file-tree ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.file-tree ul ul {
+  padding-left: 24px;
+  border-left: 1px solid #ddd;
+  margin-left: 8px;
+}
+
+.file-tree li {
+  position: relative;
+  padding: 2px 0;
+}
+
+.file-tree .folder > span,
+.file-tree .folder > strong {
+  font-weight: 600;
+}
+
+.file-tree .item a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.file-tree .item a:hover {
+  text-decoration: underline;
+}
+
+.file-tree .badge {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.file-tree .badge-production {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.file-tree .badge-confirmed {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.file-tree .badge-testing {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.file-tree .badge-soon {
+  background: #f5f5f5;
+  color: #999;
+}
+
+/* ========== Tabs (Tableau report pages) ========== */
+
+.tabs-container {
+  margin: 30px 0;
+}
+
+.tabs-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #000;
+  margin-bottom: 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 10px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab-btn:hover {
+  color: #000;
+}
+
+.tab-btn.active {
+  color: #000;
+  font-weight: 700;
+  border-bottom-color: #000;
+}
+
+.tab-panel {
+  display: none;
+  padding: 24px 0;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-panel img {
+  max-width: 100%;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* Report metadata header */
+.report-header {
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid #000;
+}
+
+.report-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.9em;
+}
+
+.report-meta div {
+  white-space: nowrap;
+}
+
+/* Data sources section */
+.data-sources {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.data-sources code {
+  font-size: 0.85em;
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
