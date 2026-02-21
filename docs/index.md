@@ -1,35 +1,7 @@
 # Browns -- Data Science
+
 *alassane.diop@brownsshoes.com*
 
 ---
 
-<div class="file-tree">
-<ul>
-
-  <li class="folder"><strong>Tableau Reports</strong>
-    <ul>
-      <li class="folder"><strong>CRM Reports</strong>
-        <ul>
-          <li class="item"><a href="./omnichannel-attribution/">OmniChannel Attribution</a> <span class="badge badge-production">Production</span></li>
-          <li class="item">Unified Acquisition <span class="badge badge-soon">coming soon</span></li>
-        </ul>
-      </li>
-      <li class="folder"><strong>Others</strong>
-        <ul>
-          <li class="item">Store Traffic Dashboard <span class="badge badge-soon">coming soon</span></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-
-  <li class="folder"><strong>Other Projects</strong>
-    <ul>
-      <li class="item"><a href="./browns-lens/">Browns Lens</a> <span class="badge badge-testing">Testing</span></li>
-      <li class="item"><a href="./multitouch-attribution/">Multitouch Attribution</a> <span class="badge badge-confirmed">Confirmed</span></li>
-      <li class="item">NPS Comments Keywords <span class="badge badge-soon">coming soon</span></li>
-      <li class="item">Tableau GPT Descriptions <span class="badge badge-soon">coming soon</span></li>
-    </ul>
-  </li>
-
-</ul>
-</div>
+Internal portfolio for the Data Science team's delivered work. Use the navigation on the left to browse Tableau reports and other projects.

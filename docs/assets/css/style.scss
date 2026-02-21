@@ -4,16 +4,21 @@
 @import "{{ site.theme }}";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+/* ========== Base typography ========== */
+
 body {
   font-family: 'Montserrat', sans-serif;
   color: #000;
   background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   color: #000;
   font-weight: 600;
+  font-variant-emoji: emoji;
 }
 
 a {
@@ -25,7 +30,6 @@ a:hover {
   color: #333;
 }
 
-/* Style h1 links without underlines */
 h1 a {
   text-decoration: none;
   color: inherit;
@@ -36,10 +40,98 @@ h1 a:hover {
   text-decoration: none;
 }
 
+strong {
+  font-weight: 700;
+}
+
+/* ========== Site layout: sidebar + content ========== */
+
+/* Hide the theme's default wrapper/header/footer — we use our own layout */
+.wrapper, header, footer, .site-footer,
+.site-footer-owner, .site-footer-credits {
+  display: none !important;
+}
+
+.site-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sticky sidebar */
+.sidebar-nav {
+  width: 280px;
+  min-width: 280px;
+  padding: 30px 20px;
+  border-right: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.sidebar-title {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000;
+}
+
+.sidebar-title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar-title a:hover {
+  color: #333;
+}
+
+/* Main content area */
+.site-content {
+  flex: 1;
+  max-width: 1100px;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+/* ========== Typography in content ========== */
+
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.8em;
+  border-bottom: 3px solid #000;
+  padding-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.6em;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+h2 + h3 {
+  margin-top: 30px;
+}
+
+/* ========== Tables ========== */
+
 table {
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
+  font-size: 0.9em;
 }
 
 th {
@@ -48,6 +140,9 @@ th {
   padding: 10px;
   text-align: left;
   font-weight: 600;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 td {
@@ -59,6 +154,13 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
+table a {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ========== Code ========== */
+
 code {
   background-color: #f4f4f4;
   padding: 2px 4px;
@@ -67,97 +169,37 @@ code {
 }
 
 pre {
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-radius: 5px;
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
   overflow-x: auto;
+  font-size: 0.85em;
+  line-height: 1.4;
+  margin: 20px 0;
 }
 
-strong {
-  font-weight: 700;
-}
+/* ========== Two-column layout (project pages) ========== */
 
-/* Custom styles for the documentation platform */
-.wrapper {
-  max-width: 1400px;
-  width: 90%;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-section {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-header {
-  display: none; /* Hide default Jekyll header */
-}
-
-/* Hide GitHub Pages footer */
-footer {
-  display: none !important;
-}
-
-.site-footer {
-  display: none !important;
-}
-
-/* Hide "This site is powered by..." */
-.site-footer-owner,
-.site-footer-credits {
-  display: none !important;
-}
-
-/* Improve markdown rendering */
-.markdown-body {
-  max-width: none;
-  width: 100%;
-}
-
-/* Better spacing and typography */
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 1em;
-  border-bottom: 3px solid #000;
-  padding-bottom: 0.5em;
-}
-
-h2 {
-  font-size: 2em;
-  margin-top: 2em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid #000;
-  padding-bottom: 0.3em;
-}
-
-h3 {
-  font-size: 1.5em;
-  margin-top: 1.5em;
-  margin-bottom: 0.8em;
-}
-
-/* Two-column layout for project pages */
 .two-column-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin: 40px 0;
+  gap: 50px;
+  margin: 30px 0;
 }
 
 .column-left {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .column-right {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
-/* Project header section */
+/* ========== Project header ========== */
+
 .project-header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 3px solid #000;
 }
@@ -174,104 +216,32 @@ h3 {
   font-weight: 600;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .two-column-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .column-left,
-  .column-right {
-    padding: 0;
-  }
-  
-  .project-meta {
-    grid-template-columns: 1fr;
-  }
-  
-  .wrapper {
-    width: 95%;
-    padding: 0 10px;
-  }
-  
-  section {
-    padding: 20px 0;
-  }
-}
+/* ========== Report header (Tableau report pages) ========== */
 
-/* Better table styling */
-table {
-  margin: 30px 0;
-  font-size: 0.9em;
-}
-
-th {
-  font-size: 0.85em;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Code blocks */
-pre {
-  margin: 25px 0;
-  font-size: 0.9em;
-  line-height: 1.4;
-}
-
-/* Links in tables */
-table a {
-  color: #000;
-  font-weight: 600;
-}
-
-/* Emoji support */
-img.emoji {
-  display: inline;
-  height: 1em;
-  width: 1em;
-  margin: 0 .05em 0 .1em;
-  vertical-align: -0.1em;
-  border: none;
-  box-shadow: none;
-}
-
-/* Direct Unicode emoji styling */
-h1, h2, h3, h4, h5, h6 {
-  /* Ensure emojis in headings display properly */
-  font-variant-emoji: emoji;
-}
-
-/* Simplified project header */
-.project-header {
+.report-header {
   margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid #000;
 }
 
-/* ASCII diagram styling */
-pre {
-  background-color: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
-  padding: 20px;
-  overflow-x: auto;
+.report-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 0.9em;
+}
+
+.report-meta div {
+  white-space: nowrap;
+}
+
+/* ========== File-tree (sidebar) ========== */
+
+.sidebar-nav .file-tree {
   font-size: 0.85em;
-  line-height: 1.4;
-  margin: 20px 0;
+  line-height: 1.9;
 }
-
-/* Technical components section */
-h2 + h3 {
-  margin-top: 30px;
-}
-
-h3 {
-  color: #333;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-}
-
-/* ========== File-tree navigation (index page) ========== */
 
 .file-tree {
   font-family: 'Montserrat', sans-serif;
@@ -279,6 +249,7 @@ h3 {
   line-height: 1.8;
 }
 
+.file-tree,
 .file-tree ul {
   list-style: none;
   padding-left: 0;
@@ -286,14 +257,14 @@ h3 {
 }
 
 .file-tree ul ul {
-  padding-left: 24px;
+  padding-left: 18px;
   border-left: 1px solid #ddd;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .file-tree li {
   position: relative;
-  padding: 2px 0;
+  padding: 1px 0;
 }
 
 .file-tree .folder > span,
@@ -312,11 +283,11 @@ h3 {
 
 .file-tree .badge {
   display: inline-block;
-  font-size: 0.75em;
+  font-size: 0.7em;
   font-weight: 600;
-  padding: 1px 8px;
+  padding: 1px 6px;
   border-radius: 10px;
-  margin-left: 8px;
+  margin-left: 4px;
   vertical-align: middle;
 }
 
@@ -393,35 +364,50 @@ h3 {
   margin: 16px 0;
 }
 
-/* Report metadata header */
-.report-header {
-  margin-bottom: 30px;
-  padding: 20px 0;
-  border-bottom: 2px solid #000;
+/* ========== Emoji support ========== */
+
+img.emoji {
+  display: inline;
+  height: 1em;
+  width: 1em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+  border: none;
+  box-shadow: none;
 }
 
-.report-meta {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-  font-size: 0.9em;
-}
+/* ========== Responsive ========== */
 
-.report-meta div {
-  white-space: nowrap;
-}
+@media (max-width: 900px) {
+  .site-layout {
+    flex-direction: column;
+  }
 
-/* Data sources section */
-.data-sources {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-}
+  .sidebar-nav {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 2px solid #eee;
+    padding: 20px;
+  }
 
-.data-sources code {
-  font-size: 0.85em;
-  background: #f4f4f4;
-  padding: 2px 6px;
-  border-radius: 3px;
+  .site-content {
+    padding: 20px;
+  }
+
+  .two-column-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .column-left,
+  .column-right {
+    padding: 0;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
 }

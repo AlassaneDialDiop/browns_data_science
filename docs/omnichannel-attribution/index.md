@@ -8,9 +8,21 @@
   </div>
 </div>
 
+<div class="two-column-layout">
+
+<div class="column-left">
+
 ## Context
 
 This report measures the **full omnichannel impact** of web traffic -- attributing revenue to marketing channels across both online and in-store purchases. When a customer browses on brownshoes.com via Google Ads then buys in-store, we can only attribute that sale if we identified the customer during their web session. For some channels we identify as little as 28% of visitors. This report estimates the hidden store revenue using a statistically-grounded uplift methodology, approved by leadership in February 2026.
+
+## Data Source
+
+**Snowflake model:** `bi_digital_web_traffic_omnichannel_attribution`
+
+</div>
+
+<div class="column-right">
 
 <div class="tabs-container">
   <div class="tabs-bar">
@@ -31,13 +43,9 @@ This report measures the **full omnichannel impact** of web traffic -- attributi
   </div>
 </div>
 
-## Data Sources
+</div>
 
-| Model | Description |
-|-------|-------------|
-| `bi_digital_web_traffic_omnichannel_attribution` | Uplift estimation per channel (rolling 60-day window) |
-| `bi_digital_web_traffic_web_traffic_with_omni_attribution` | Final model with fiscal calendar, RY comparisons, period flags |
-| `ana_digital_web_traffic_omnichannel_attribution_daily_metrics` | Daily metrics: sessions, email resolution, store/online orders |
+</div>
 
 ---
 
