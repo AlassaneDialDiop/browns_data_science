@@ -315,14 +315,24 @@ pre {
   margin-top: 0;
 }
 
-/* Level 2 folders: subsection headers */
+/* Level 2 folders: subsection headers (Marketing, Others) */
 .file-tree > li > ul > li.folder > strong {
   display: block;
   font-size: 0.9em;
   font-weight: 600;
-  color: #555;
+  color: #444;
   margin-top: 14px;
   margin-bottom: 4px;
+}
+
+/* Level 3 folders: sub-subsection headers (CRM, Self-Serve) */
+.file-tree > li > ul > li > ul > li.folder > strong {
+  display: block;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #777;
+  margin-top: 8px;
+  margin-bottom: 2px;
 }
 
 /* Items (leaf nodes) */
