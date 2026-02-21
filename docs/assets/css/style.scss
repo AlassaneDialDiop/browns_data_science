@@ -59,8 +59,8 @@ strong {
 
 /* Sticky sidebar */
 .sidebar-nav {
-  width: 280px;
-  min-width: 280px;
+  width: 320px;
+  min-width: 320px;
   padding: 32px 24px;
   border-right: 1px solid #e0e0e0;
   background: #fafafa;
@@ -359,14 +359,15 @@ pre {
   vertical-align: middle;
 }
 
+/* Badge order priority: Production > Paused > Testing > TBD */
 .file-tree .badge-production {
   background: #e8f5e9;
   color: #2e7d32;
 }
 
-.file-tree .badge-confirmed {
-  background: #e3f2fd;
-  color: #1565c0;
+.file-tree .badge-paused {
+  background: #f3e5f5;
+  color: #7b1fa2;
 }
 
 .file-tree .badge-testing {
@@ -374,9 +375,9 @@ pre {
   color: #e65100;
 }
 
-.file-tree .badge-soon {
-  background: #f5f5f5;
-  color: #999;
+.file-tree .badge-tbd {
+  background: #ffebee;
+  color: #c62828;
 }
 
 /* ========== Tabs (Tableau report pages) ========== */
