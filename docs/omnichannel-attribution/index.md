@@ -16,7 +16,7 @@
 
   <div class="tab-panel active" id="tab-impact">
     <p>Stacked bar chart showing each channel's online revenue (observed) alongside estimated store revenue. Channels with low identification rates (like Google Ads at ~28%) show the largest uplift. Channels with high identification (like Email at ~97%) show minimal adjustment.</p>
-    <img src="../assets/images/omnichannel-attribution-dashboard.png" alt="OmniChannel Attribution — Impact on Store sales" />
+    <img src="../assets/images/omnichannel-impact-on-store-sales.png" alt="OmniChannel Attribution — Impact on Store sales" />
   </div>
 </div>
 
