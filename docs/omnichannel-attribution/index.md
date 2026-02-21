@@ -1,12 +1,12 @@
-# OmniChannel Attribution
-
-<div class="report-header">
-  <div class="report-meta">
-    <div><strong>Status:</strong> Production</div>
-    <div><strong>Category:</strong> CRM Reports</div>
-    <div><strong>Last updated:</strong> February 2026</div>
-  </div>
+<div class="page-top-bar">
+  <h1>OmniChannel Attribution</h1>
   <a class="report-link" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/views/WebTraffic-OmnichannelAttributionDS2026-4/ImpactonStoresales?:iid=1">Open in Tableau</a>
+</div>
+
+<div class="report-meta">
+  <div><strong>Status:</strong> Production</div>
+  <div><strong>Category:</strong> CRM Reports</div>
+  <div><strong>Last updated:</strong> February 21, 2026</div>
 </div>
 
 <div class="tabs-container">
@@ -35,7 +35,3 @@ This report measures the **full omnichannel impact** of web traffic -- attributi
 ## Data Source
 
 **Snowflake model:** `bi_digital_web_traffic_omnichannel_attribution`
-
----
-
-*Last updated: 2026-02-21*
