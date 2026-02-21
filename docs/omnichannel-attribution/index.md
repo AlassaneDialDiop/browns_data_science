@@ -11,20 +11,12 @@
 
 <div class="tabs-container">
   <div class="tabs-bar">
-    <button class="tab-btn active" data-tab="tab-overview">Overview</button>
-    <button class="tab-btn" data-tab="tab-methodology">Methodology</button>
+    <button class="tab-btn active" data-tab="tab-impact">Impact on Store sales</button>
   </div>
 
-  <div class="tab-panel active" id="tab-overview">
-    <h3>Overview -- Channel Impact</h3>
+  <div class="tab-panel active" id="tab-impact">
     <p>Stacked bar chart showing each channel's online revenue (observed) alongside estimated store revenue. Channels with low identification rates (like Google Ads at ~28%) show the largest uplift. Channels with high identification (like Email at ~97%) show minimal adjustment.</p>
-    <img src="../assets/images/omnichannel-attribution-dashboard.png" alt="OmniChannel Attribution Dashboard -- Overview" />
-  </div>
-
-  <div class="tab-panel" id="tab-methodology">
-    <h3>Methodology -- Uplift Estimation</h3>
-    <p>The uplift factor per channel blends two signals: (1) the identification rate -- channels where we identify fewer visitors have more hidden store conversions, and (2) a customer-mix correction -- identified traffic skews toward returning customers, so we adjust for that bias. The uplift uses a rolling 60-day window, making it stable and independent of the selected date range.</p>
-    <img src="../assets/images/omnichannel-attribution-dashboard.png" alt="OmniChannel Attribution Dashboard -- Methodology" />
+    <img src="../assets/images/omnichannel-attribution-dashboard.png" alt="OmniChannel Attribution — Impact on Store sales" />
   </div>
 </div>
 
