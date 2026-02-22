@@ -4,7 +4,7 @@
 </div>
 
 <div class="report-meta">
-  <div><strong>Status:</strong> Testing</div>
+  <div><strong>Status:</strong> Production</div>
   <div><strong>Category:</strong> Others</div>
   <div><strong>Last updated:</strong> February 22, 2026</div>
 </div>
