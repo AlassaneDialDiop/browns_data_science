@@ -1,6 +1,6 @@
 <div class="page-top-bar">
   <h1>OmniChannel Attribution</h1>
-  <a class="report-link" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/views/WebTraffic-OmnichannelAttributionDS2026-4/ImpactonStoresales?:iid=1">Open in Tableau</a>
+  <a class="report-link" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/workbooks/1901107/views">Open in Tableau</a>
 </div>
 
 <div class="report-meta">
