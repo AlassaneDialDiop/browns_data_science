@@ -376,6 +376,11 @@ pre {
 }
 
 .file-tree .badge-tbd {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.file-tree .badge-broken {
   background: #ffebee;
   color: #c62828;
 }
