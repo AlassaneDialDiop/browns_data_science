@@ -5,7 +5,7 @@
 
 <div class="report-meta">
   <div><strong>Status:</strong> Production</div>
-  <div><strong>Category:</strong> Others</div>
+  <div><strong>Category:</strong> Marketing / Self-Serve</div>
   <div><strong>Last updated:</strong> February 22, 2026</div>
 </div>
 
