@@ -349,6 +349,12 @@ pre {
   text-decoration: underline;
 }
 
+.file-tree .separator {
+  border-top: 1px solid #ccc;
+  margin: 6px 0;
+  list-style: none;
+}
+
 .file-tree .badge {
   display: inline-block;
   font-size: 0.65em;
