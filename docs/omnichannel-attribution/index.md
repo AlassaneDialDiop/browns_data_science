@@ -5,7 +5,7 @@
 
 <div class="report-meta">
   <div><strong>Status:</strong> Production</div>
-  <div><strong>Category:</strong> CRM Reports</div>
+  <div><strong>Category:</strong> Marketing - Staging</div>
   <div><strong>Last updated:</strong> February 21, 2026</div>
 </div>
 
