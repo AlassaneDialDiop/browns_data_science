@@ -1,6 +1,6 @@
 <div class="page-top-bar">
   <h1>AB Test Results</h1>
-  <a class="report-link" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/workbooks/1374793/views">Open in Tableau</a>
+  <a class="report-link" target="_blank" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/workbooks/1374793/views">Open in Tableau</a>
 </div>
 
 <div class="report-meta">

@@ -1,6 +1,6 @@
 <div class="page-top-bar">
   <h1>Traffic Reallocation to Email</h1>
-  <a class="report-link" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/workbooks/1760092/views">Open in Tableau</a>
+  <a class="report-link" target="_blank" href="https://prod-ca-a.online.tableau.com/#/site/brownsshoes/workbooks/1760092/views">Open in Tableau</a>
 </div>
 
 <div class="report-meta">
