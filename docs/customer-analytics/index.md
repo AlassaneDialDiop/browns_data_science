@@ -32,4 +32,6 @@ Self-serve exploration dashboard for customer analytics. Allows stakeholders to 
 
 ## Data Source
 
-**Snowflake model:** `PROD_SANDBOX.ADIOP.lean_order_history_customer_analytics`
+| Snowflake | dbt |
+|-----------|-----|
+| `PROD_SANDBOX.ADIOP.lean_order_history_customer_analytics` | — |

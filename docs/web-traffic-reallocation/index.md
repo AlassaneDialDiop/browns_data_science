@@ -26,4 +26,6 @@ Unified web traffic report that incorporates email send window reallocation logi
 
 ## Data Source
 
-**Snowflake model:** `PROD_SANDBOX.ADIOP.SESSIONS_WITH_SEND_WINDOW` + production tables
+| Snowflake | dbt |
+|-----------|-----|
+| `PROD_SANDBOX.ADIOP.SESSIONS_WITH_SEND_WINDOW` + production tables | — (in progress) |

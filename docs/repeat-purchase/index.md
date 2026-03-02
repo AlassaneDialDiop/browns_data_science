@@ -62,4 +62,6 @@ Comprehensive repeat purchase analysis covering every angle of customer retentio
 
 ## Data Source
 
-**Snowflake model:** `PROD_SANDBOX.ADIOP.customer_spend_summary`
+| Snowflake | dbt |
+|-----------|-----|
+| `PROD_SANDBOX.ADIOP.customer_spend_summary` | — |

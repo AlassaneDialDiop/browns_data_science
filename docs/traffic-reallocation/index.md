@@ -26,4 +26,6 @@ What-if simulation tool for the marketing team to model the effect of shifting w
 
 ## Data Source
 
-**Snowflake model:** `prod_sandbox.ADIOP.session_funnel_steps_with_TS`
+| Snowflake | dbt |
+|-----------|-----|
+| `prod_sandbox.ADIOP.session_funnel_steps_with_TS` | — |

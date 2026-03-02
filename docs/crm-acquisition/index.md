@@ -56,4 +56,6 @@ Unified view of customer acquisition and retention performance across all channe
 
 ## Data Source
 
-**Snowflake model:** `P_BI.MARKETING.UNIFIED_ACQUISITION_LINES`
+| Snowflake | dbt |
+|-----------|-----|
+| `PROD_BI.MARKETING.UNIFIED_ACQUISITION_LINES` | `bi_marketing_unified_acquisition_lines` |

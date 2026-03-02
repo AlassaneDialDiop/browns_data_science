@@ -38,8 +38,8 @@ Centralized view of email marketing performance across both **campaigns** (one-t
 
 ## Data Sources
 
-| Model | Description |
-|-------|-------------|
-| `P_BI.DIGITAL.email_campaign_performance` | Campaign-level email metrics |
-| `P_BI.DIGITAL.email_canvas_performance` | Canvas/automated flow metrics |
-| `P_BI.DIGITAL.EMAIL_REVENUE_ATTRIBUTION` | Revenue attribution for email touches |
+| Snowflake | dbt | Description |
+|-----------|-----|-------------|
+| `P_BI.DIGITAL.email_campaign_performance` | `bi_digital_email_campaign_performance` | Campaign-level email metrics |
+| `P_BI.DIGITAL.email_canvas_performance` | `bi_digital_email_canvas_performance` | Canvas/automated flow metrics |
+| `P_BI.DIGITAL.EMAIL_REVENUE_ATTRIBUTION` | `bi_digital_email_revenue_attribution` | Revenue attribution for email touches |

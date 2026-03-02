@@ -44,4 +44,6 @@ Customer lifetime value and loyalty segmentation dashboard. Segments the custome
 
 ## Data Source
 
-**Snowflake model:** `PROD_SANDBOX.ADIOP.customer_spend_summary`
+| Snowflake | dbt |
+|-----------|-----|
+| `PROD_SANDBOX.ADIOP.customer_spend_summary` | — |

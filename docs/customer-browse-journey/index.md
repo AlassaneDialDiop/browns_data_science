@@ -32,4 +32,6 @@ Tracks the full customer browse-to-purchase journey on the ecommerce site. The O
 
 ## Data Source
 
-**Snowflake model:** `prod_analyze.web_traffic.session_funnel_steps`
+| Snowflake | dbt |
+|-----------|-----|
+| `prod_analyze.web_traffic.session_funnel_steps` | — (migrating to new dbt project) |

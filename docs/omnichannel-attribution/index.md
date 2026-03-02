@@ -26,4 +26,6 @@ This report measures the **full omnichannel impact** of web traffic -- attributi
 
 ## Data Source
 
-**Snowflake model:** `bi_digital_web_traffic_omnichannel_attribution`
+| Snowflake | dbt |
+|-----------|-----|
+| `P_BI.DIGITAL.WEB_TRAFFIC_OMNICHANNEL_ATTRIBUTION` | `bi_digital_web_traffic_omnichannel_attribution` |

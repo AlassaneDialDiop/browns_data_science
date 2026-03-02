@@ -56,4 +56,6 @@ End-to-end product intelligence dashboard combining market basket analysis, bran
 
 ## Data Source
 
-**Snowflake:** Python notebooks (market basket analysis, collaborative filtering, KNN models)
+| Snowflake | dbt |
+|-----------|-----|
+| Python notebooks (market basket, collaborative filtering, KNN) | — |
